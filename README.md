@@ -14,3 +14,4 @@ If anyone is interested in this, please send pull requests to improve this. Than
 - Jade .jade to .html
 - Copy .js files.
 - Copy other README etc files.
+- Use PHP ORM/DAL like AdoDB etc to support multiple databases.
