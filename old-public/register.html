@@ -1,0 +1,129 @@
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/wekan-favicon.png">
+    <link rel="apple-touch-icon" href="/wekan-favicon.png">
+    <link rel="mask-icon" href="/wekan-logo-150.svg">
+    <link rel="manifest" href="/wekan-manifest.json">
+</head>
+
+<body>
+    <section class="auth-layout">
+        <section class="auth-dialog">
+            <div class="at-form">
+                <div class="at-title">
+                    <h3>Create an Account</h3>
+                </div>
+                <div class="at-pwd-form">
+                    <div class="at-form-authentication" style="display: none;"><label>Authentication method</label>
+                        <select class="select-authentication">
+                            <option value="password">Password</option>
+                        </select></div>
+                    <form role="form" id="at-pwd-form" novalidate="" action="#" method="POST" _lpchecked="1">
+                        <div class="at-input">
+                            <label for="at-field-username">
+                                Username
+                            </label>
+                            <input type="text" id="at-field-username" name="at-field-username" placeholder="Username"
+                                autocapitalize="none" autocorrect="off"
+                                style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                        </div>
+                        <div class="at-input">
+                            <label for="at-field-email">
+                                Email
+                            </label>
+                            <input type="email" id="at-field-email" name="at-field-email" placeholder="Email"
+                                autocapitalize="none" autocorrect="off">
+                        </div>
+                        <div class="at-input">
+                            <label for="at-field-password">
+                                Password
+                            </label>
+                            <input type="password" id="at-field-password" name="at-field-password"
+                                placeholder="Password" autocapitalize="none" autocorrect="off" autocomplete="off"
+                                style="background-image: none; background-repeat: initial; background-attachment: initial; background-size: initial; background-position: initial; cursor: auto;">
+                        </div>
+                        <div class="at-input" id="invitationcode" style="display: none;"><label
+                                for="at-field-code">Invitation Code</label>
+                            <input id="at-field-invitationcode" type="text" name="at-field-invitationcode"
+                                placeholder="Invitation Code"></div>
+                        <button type="submit" class="at-btn submit" id="at-btn">
+                            Register
+                        </button>
+                    </form>
+                </div>
+                <div class="at-signin-link">
+                    <p>
+                        If you already have an account
+                        <a href="/sign-in" id="at-signIn" class="at-link at-signin">sign in</a>
+                    </p>
+                </div>
+            </div>
+            <div class="at-form-lang"><select class="select-lang js-userform-set-language">
+                    <option value="id">Bahasa Indonesia</option>
+                    <option value="br">Brezhoneg</option>
+                    <option value="ca">Català</option>
+                    <option value="da">Dansk</option>
+                    <option value="de">Deutsch</option>
+                    <option value="en">English</option>
+                    <option value="en-GB">English (UK)</option>
+                    <option value="es">Español</option>
+                    <option value="es-AR">Español de Argentina</option>
+                    <option value="eo">Esperanto</option>
+                    <option value="eu">Euskara</option>
+                    <option value="fr">Français</option>
+                    <option value="gl">Galego</option>
+                    <option value="ig">Igbo</option>
+                    <option value="it">Italiano</option>
+                    <option value="sw">Kiswahili</option>
+                    <option value="hu">Magyar</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="nb">Norsk bokmål</option>
+                    <option value="oc">Occitan</option>
+                    <option value="pl">Polski</option>
+                    <option value="pt">Português</option>
+                    <option value="pt-BR">Português do Brasil</option>
+                    <option value="ro">Română</option>
+                    <option value="fi">Suomi</option>
+                    <option value="sv">Svenska</option>
+                    <option value="vi">Tiếng Việt</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="lv">latviešu valoda</option>
+                    <option value="cs">čeština‎</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="bg">Български</option>
+                    <option value="mn">Монгол</option>
+                    <option value="ru">Русский</option>
+                    <option value="sr">Српски језик</option>
+                    <option value="uk">Українська</option>
+                    <option value="mk">македонски јазик</option>
+                    <option value="hy">Հայերեն</option>
+                    <option value="he">עברית</option>
+                    <option value="ar">العربية</option>
+                    <option value="fa">فارسی</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="ta">தமிழ்</option>
+                    <option value="th">ไทย</option>
+                    <option value="ka">ქართული</option>
+                    <option value="km">ភាសាខ្មែរ</option>
+                    <option value="ja">日本語</option>
+                    <option value="zh-CN">简体中文</option>
+                    <option value="zh-TW">繁体中文（台湾）</option>
+                    <option value="zh-HK">繁体中文（香港）</option>
+                    <option value="ko">한국어</option>
+                </select></div>
+        </section>
+    </section>
+    <div id="__lpform_at-field-password_numspan"
+        style="font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; background-color: rgb(128, 128, 128); cursor: default; position: absolute !important; visibility: visible !important; border: 0px !important; font-size: 9px !important; top: 242px !important; left: 507px !important; padding: 1px 2px !important; font-weight: bold !important; color: rgb(255, 255, 255) !important; line-height: 11px !important; max-width: 10px !important; z-index: 15 !important;">
+        9+</div>
+    <div id="__lpform_at-field-password"
+        style="max-height: 16px; vertical-align: top; position: absolute; top: 231px; left: 499px; z-index: 14;"><img
+            id="__lpform_at-field-password_icon"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAARNJREFUOBGlU72ORWAQPYREq9CtRryBQqJSaGziATyB1/AaV3c7ryAegUZHfxM1hUTiZ82EXbvVcicx35yZOWe+nxDiOP4E8FjX9WNb/22CILy25kjc3GUyTdkHPsSrk4l8GHFpB2/ZbQFVVXnwbQHXdX8EJEkCJRzHwXa7XLAsC57nQVEUxoZhwPd9aJrG+HASBbZtswDFXdeh73sEQUAQsiwjz3OEYcixrutIkoRr5PgI0zR9Jyj+i7fbxjzP3HOuUYJ3UBQFlmXBOI5omoYb0zQFXVRZlkx+Pp8wTRNVVXH9cCxAZBI5W13XZ4i2bfn7ldzA7VfIsoy1bgsMw/CewHEUcf+rDnxpJS4dIbojsnOiL0hfafwTOClcAAAAAElFTkSuQmCC"
+            height="16" style="opacity: 0.6; vertical-align: top;" width="16"></div>
+</body>
+</html>
