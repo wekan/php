@@ -12,6 +12,8 @@ This release adds the following changes:
   Thanks to xet7.
 - [Removed duplicate ChangeLog](https://github.com/wekan/php/commit/06f360c927c6170c7d5b53d01c2e37d70d312391).
   Thanks to xet7.
+- [Updated `install-php-deps.sh` scripts for more detailed install info](https://github.com/wekan/php/commit/b0f953374cf16b8177fe4cef6c7bad00e11a79f9).
+  Thanks to xet7.
 
 Thanks to above GitHub users for their contributions and translators for their translations.
 
