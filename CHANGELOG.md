@@ -1,3 +1,12 @@
+# Upcoming Wekan-php release
+
+This release adds the following changes:
+
+- [Updated README.md with links to ChangeLog and releases RSS feed](https://github.com/wekan/wekan-php/commit/667d019ee68a56e926b55032e277956cdc8436fe).
+  Thanks to xet7.
+
+Thanks to above GitHub users for their contributions and translators for their translations.
+
 # v0.02 2021-05-24 Wekan-php release
 
 This release has these still missing:
