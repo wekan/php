@@ -1,7 +1,24 @@
 <?php
 
-$debug = false;
 
+
+// Autologin:
+//   Note: During development, when auth is not implemented yet ,
+//       this has autologin, empty or any username/password logins
+//       with login button. To remove these, search this script
+//       for autologin.
+If s($_POST["autologin"]) . '!';
+
+// Change visible page based on $_PORT variable content.
+switch (htmlspecialchars($_POST["autologin"])) {
+  case "autologin":
+    $page = "allboards";
+  default:
+    $page = "login";
+}
+
+// Debuggint
+$debug = false;
 if ($debug) {
   // Error reporting: ALL
   ini_set('error_reporting', E_ALL);
@@ -211,6 +228,10 @@ if ($debug) {
   Debug End
 */
 
+/*
+  HTML head and start or body
+*/
+
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
@@ -232,6 +253,16 @@ if ($debug) {
 </head>
 
 <body style="font-family: <?php echo strip_tags($font); ?>; background-color: #<?php echo strip_tags($bgColor); ?>">
+
+<?php
+
+/*
+  Login page
+*/
+
+if ($page == "login") {
+
+?>
 
 <center>
       <h1></h1>
@@ -357,6 +388,7 @@ if ($hideLogo != true) {
                 </select>
              </p>
            </div>
+           <input type="hidden" name="autologin" value="autologin">
            <input type="submit" name="login" class="at-btn submit" id="at-btn"
            value="<?php echo htmlentities($translate["log-in"]); ?>">
         </form>
@@ -383,5 +415,96 @@ if ($hideLogo != true) {
      </tr>
      </table>
 </center>
+
+<?php
+
+/*
+  Sign Up page (for registering new user)
+*/
+
+} else if ($page = "signup") {
+
+/*
+  Forgot Password page
+*/
+
+} else if ($page = "forgotpassword") {
+
+/*
+  All Boards page
+*/
+
+} else if ($page = "allboards") {
+
+/*
+  One Board page
+*/
+
+} else if ($page = "board") {
+
+/*
+  Board Settings page
+*/
+
+} else if ($page = "boardsettings") {
+
+/*
+  Swimlane page
+*/
+
+} else if ($page = "swimlane") 
+
+/*
+  Swimlane Settings page
+*/
+
+} else if ($page = "swimlanesettings") {
+
+/*
+  One Card page
+*/
+
+} else if ($page = "card") {
+
+/*
+  Card Settings page
+*/
+
+} else if ($page = "cardsettings") {
+
+/*
+  Search All Boards page
+*/
+
+} else if ($page = "searchallboards") {
+
+/*
+  My Cards page
+*/
+
+} else if ($page = "mycards") {
+
+/*
+  Calendar page
+*/
+
+} else if ($page = "calendar") {
+
+/*
+  Gantt page
+*/
+
+} else if ($page = "gantt") {  
+
+/*
+  Admin Panel page
+*/
+
+} else if ($page = "adminpanel") {
+
+}
+  
+?>
+
 </body>
 </html>
