@@ -16,7 +16,7 @@ and adds the following changes:
 and adds the following new features:
 
 - `releases/` scripts for adding tags, updating changelog, updating translations
-- `public/` where added prototype 2 of Wekan-php
+- `public/` where added [prototype 2](https://github.com/wekan/wekan-php/commit/f15a00be76c429bfa798fa62fbcd3c23db7f30f8) of Wekan-php
 - `screenshots/` now has screenshots of:
   - `prototype 1 board netsurf` that I have not tried to find old code yet.
   - `prototype 2 wekan php` that is current prototype, showing Amiga AWeb and Netsuft browsers.
