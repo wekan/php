@@ -8,6 +8,10 @@ This release adds the following changes:
   [Part 3](https://github.com/wekan/php/commit/d9d799c3129161ac6705a4869b5488787ac9a6be),
   [Part 4](https://github.com/wekan/php/commit/9145f210a1a062ec706a573b8a9d44d43ee5d5b4).
   Thanks to xet7.
+- [Moved not-in-use css from `public` to `public/css`](https://github.com/wekan/php/commit/a02c4d892f2f92904a85c56b6ffa63e8c0e96df9).
+  Thanks to xet7.
+- [Removed duplicate ChangeLog](https://github.com/wekan/php/commit/06f360c927c6170c7d5b53d01c2e37d70d312391).
+  Thanks to xet7.
 
 Thanks to above GitHub users for their contributions and translators for their translations.
 
