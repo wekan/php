@@ -143,7 +143,7 @@ if (!empty( $_SERVER[ 'HTTP_ACCEPT_LANGUAGE' ] ) ) {
   $lang = 'en';
 }
 
-$langjson = file_get_contents('./i18n/' . $lang . '.i18n.json');
+$langjson = file_get_contents('../i18n/' . $lang . '.i18n.json');
 
 $translate = json_decode($langjson, true);
 

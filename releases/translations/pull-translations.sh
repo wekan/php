@@ -1,5 +1,3 @@
-cd ~/repos/w/wekan-php/public
-
 echo "Arabic:"
 tx pull -f -l ar
 
@@ -195,5 +193,3 @@ tx pull -f -l uk
 
 echo "Vietnamese:"
 tx pull -f -l vi
-
-cd ~/repos/w/wekan-php
