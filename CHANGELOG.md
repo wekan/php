@@ -2,7 +2,9 @@
 
 This release adds the following changes:
 
-- [Updated README.md with links to ChangeLog and releases RSS feed](https://github.com/wekan/wekan-php/commit/667d019ee68a56e926b55032e277956cdc8436fe).
+- Updated README.md with links to ChangeLog and releases RSS feed
+  [Part 1](https://github.com/wekan/wekan-php/commit/667d019ee68a56e926b55032e277956cdc8436fe),
+  [Part 2](https://github.com/wekan/wekan-php/commit/ea6ac3e5fa38ed3a5d044a324dc5bfe2fa851517).
   Thanks to xet7.
 
 Thanks to above GitHub users for their contributions and translators for their translations.
