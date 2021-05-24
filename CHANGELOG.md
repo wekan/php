@@ -1,4 +1,4 @@
-# 2021-05-24 v0.02 Wekan-php release
+# v0.02 2021-05-24 Wekan-php release
 
 This release has these still missing:
 
@@ -56,7 +56,7 @@ and adds the following new features:
     - `public/style.css`: All of Meteor Wekan CSS, without login.css
     - `public/login.css`: minimal Meteor Wekan style CSS.
 
-# 2019-08-01 v0.01 Wekan-php release
+# v0.01 2019-08-01 Wekan-php release
 
 This release adds the following new features:
 
