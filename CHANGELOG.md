@@ -15,6 +15,13 @@ This release adds the following new features:
     - Gantt
     - Admin Panel
   Thanks to xet7.
+- [Added back some original Wekan fonts.
+  Changed autologin to index page with links to current visible pages.
+  Moved settings from `index.php` to `settings.php`.
+  Separate modern browser original Wekan style and Amiga webbrowser compatible pages.
+  Saved Font Awesome home icon as `public/img/home.png` so it's visible at Amiga webbrowser,
+  that does not support webfonts and SVG](https://github.com/wekan/wekan/commit/82867ebab44bee5ecdb4fd6f773976d76c92ba37).
+  Thanks to xet7.
 
 and adds the following updates:
 
