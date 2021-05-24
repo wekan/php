@@ -3,9 +3,9 @@
 This release adds the following changes:
 
 - Updated README.md with links to ChangeLog and releases RSS feed
-  [Part 1](https://github.com/wekan/wekan-php/commit/667d019ee68a56e926b55032e277956cdc8436fe),
-  [Part 2](https://github.com/wekan/wekan-php/commit/ea6ac3e5fa38ed3a5d044a324dc5bfe2fa851517),
-  [Part 2](https://github.com/wekan/wekan-php/commit/d9d799c3129161ac6705a4869b5488787ac9a6be).
+  [Part 1](https://github.com/wekan/php/commit/667d019ee68a56e926b55032e277956cdc8436fe),
+  [Part 2](https://github.com/wekan/php/commit/ea6ac3e5fa38ed3a5d044a324dc5bfe2fa851517),
+  [Part 2](https://github.com/wekan/php/commit/d9d799c3129161ac6705a4869b5488787ac9a6be).
   Thanks to xet7.
 
 Thanks to above GitHub users for their contributions and translators for their translations.
@@ -28,7 +28,7 @@ and adds the following changes:
 and adds the following new features:
 
 - `releases/` scripts for adding tags, updating changelog, updating translations
-- `public/` where added [prototype 2](https://github.com/wekan/wekan-php/commit/f15a00be76c429bfa798fa62fbcd3c23db7f30f8) of Wekan-php
+- `public/` where added [prototype 2](https://github.com/wekan/php/commit/f15a00be76c429bfa798fa62fbcd3c23db7f30f8) of Wekan-php
 - `screenshots/` now has screenshots of:
   - `prototype 1 board netsurf` that I have not tried to find old code yet.
   - `prototype 2 wekan php` that is current prototype, showing Amiga AWeb and Netsuft browsers.
