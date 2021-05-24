@@ -1,6 +1,22 @@
 # Upcoming Wekan-php release
 
-This release adds the following changes:
+This release adds the following new features:
+
+- While auth has not been implemented yet,
+  [added autologin, and selecting login page, or still empty pages](https://github.com/wekan/wekan/commit/562a3269dd96ea6ae377d6bea0c1bdbfc9310dd6):
+    - Sign Up
+    - Forgot Password
+    - All Boards, One Board, Board Settings
+    - Swimlane, Swimlane Settings
+    - One Card, Card Settings
+    - Search All Boards
+    - My Cards
+    - Calendar
+    - Gantt
+    - Admin Panel
+  Thanks to xet7.
+
+and adds the following updates:
 
 - Updated `README.md` with links to ChangeLog and releases RSS feed
   [Part 1](https://github.com/wekan/php/commit/667d019ee68a56e926b55032e277956cdc8436fe),
