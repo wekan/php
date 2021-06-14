@@ -14,7 +14,7 @@ git clone git@github.com:wekan/php.git
 cd php
 
 # 3) Install deps
-sudo apt-get install libcurl4-openssl-dev pkg-config libssl-dev apache2-mod-php
+sudo apt-get install libcurl4-openssl-dev pkg-config libssl-dev apache2-mod-php php-mbstring libgd3
 sudo apt install php-pear
 sudo pecl channel-update pecl.php.net
 sudo pecl install mongodb
