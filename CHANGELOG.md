@@ -38,6 +38,11 @@ and adds the following updates:
 - [Updated `install-php-deps.sh` scripts for more detailed install info](https://github.com/wekan/php/commit/b0f953374cf16b8177fe4cef6c7bad00e11a79f9).
   Thanks to xet7.
 
+and fixes the following bugs:
+
+- [Added missing dependencies](https://github.com/wekan/wekan/commit/5c034fb8c4ad1878b30bf385fda301ad9386e0ee).
+  Thanks to ViOffice.
+
 Thanks to above GitHub users for their contributions and translators for their translations.
 
 # v0.02 2021-05-24 Wekan-php release
