@@ -3,7 +3,7 @@
 This release adds the following new features:
 
 - While auth has not been implemented yet,
-  [added autologin, and selecting login page, or still empty pages](https://github.com/wekan/wekan/commit/562a3269dd96ea6ae377d6bea0c1bdbfc9310dd6):
+  [added autologin, and selecting login page, or still empty pages](https://github.com/wekan/php/commit/562a3269dd96ea6ae377d6bea0c1bdbfc9310dd6):
     - Sign Up
     - Forgot Password
     - All Boards, One Board, Board Settings
@@ -21,6 +21,7 @@ This release adds the following new features:
   Separate modern browser original Wekan style and Amiga webbrowser compatible pages.
   Saved Font Awesome home icon as `public/img/home.png` so it's visible at Amiga webbrowser,
   that does not support webfonts and SVG](https://github.com/wekan/wekan/commit/82867ebab44bee5ecdb4fd6f773976d76c92ba37).
+- [Use php8. Added defaultlang. Updated code repo path. Updated logo paths](https://github.com/wekan/php/commit/34abd4a60cbc856c65ea9c38acbbe7b928097a5b).
   Thanks to xet7.
 
 and adds the following updates:
