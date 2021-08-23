@@ -1,5 +1,8 @@
 <?php
 
+// Settings
+$defaultLang = "fi";
+
 // Settings: HTML head icons.
 $shortcutIcon = "favicon.ico";
 $appleTouchIcon180x180 = "apple-touch-icon.png";

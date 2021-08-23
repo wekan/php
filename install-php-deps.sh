@@ -14,16 +14,18 @@ git clone git@github.com:wekan/php.git
 cd php
 
 # 3) Install deps
-sudo apt-get install libcurl4-openssl-dev pkg-config libssl-dev apache2-mod-php php-mbstring libgd3
+sudo apt-get install composer libcurl4-openssl-dev pkg-config libssl-dev libapache2-mod-php8.0 php8.0-mbstring libgd3
 sudo apt install php-pear
 sudo pecl channel-update pecl.php.net
 sudo pecl install mongodb
+sudo echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+composer require mongodb/mongodb
 
 # 4) Optional:Add mongo to php.ini
 #   sudo echo "extension=mongodb.so" >> /etc/php/7.4/apache2/php.ini
 
 # 5) Symlink repo to Apache
-echo $REPODIR | sudo ln -s - /var/www/html/wekan-php
+echo $REPODIR/php | sudo ln -s - /var/www/html/wekan-php
 
 # 6) Add your user to www-data group
 sudo usermod -a -G www-data $USER

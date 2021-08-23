@@ -8,7 +8,9 @@
 
 // Change visible page based on $_PORT variable content.
 
-$page = $_GET["page"];
+if (isset($_GET['page'])) {
+  $page = htmlspecialchars($_GET['page']);
+}
 
 // Debugging
 $debug = false;
@@ -119,12 +121,20 @@ if (!empty( $_SERVER[ 'HTTP_ACCEPT_LANGUAGE' ] ) ) {
      } else {
        // Only es-LA has non-ASCII language name
        $lang = "es-LA";
-     }
+    }
    } else {
-     $lang = 'en';
+     if (isset($defaultLang)) {
+       $lang = $defaultLang;
+     } else {
+       $lang = 'en';
+     }
    }
 } else {
-  $lang = 'en';
+    if (isset($defaultLang)) {
+    $lang = $defaultLang;
+    } else {
+    $lang = 'en';
+    }
 }
 
 $langjson = file_get_contents('i18n/' . $lang . '.i18n.json');
@@ -231,7 +241,7 @@ if ($debug) {
   Index page: List of pages Wekan has
 */
 
-if ($page == "") {
+if (!isset($_GET['page'])) {
 
 ?>
   <center>
@@ -248,7 +258,7 @@ if ($page == "") {
 
 ?>
 
-<section class="auth-layout"><h1 class="at-form-landing-logo"><img src="img/wekan-logo.png" alt="Wekan"></h1>
+<section class="auth-layout">
   <section class="auth-dialog">
     <div class="at-form">        
         <h3>
@@ -490,7 +500,7 @@ if ($hideLogo != true) {
 ?>
 
 <section class="auth-layout">
-<h1 class="at-form-landing-logo"></h1><img src="wekan-logo.svg" alt="" width="300" height="auto"><br>
+<h1 class="at-form-landing-logo"></h1><img src="logo-header.png" alt="" width="300" height="auto"><br>
 <section class="auth-dialog">
     <div class="at-form">
         <div class="at-title">
@@ -557,7 +567,7 @@ if ($hideLogo != true) {
 
 
     <div id="header-quick-access" class="">
-        <img src="/logo-header.png" alt=""><span class="allBoards">
+        <img src="logo-header.png" alt=""><span class="allBoards">
             <a href="/"><img src="img/home.png">
                 All boards</a></span>
         <ul class="header-quick-access-list">
