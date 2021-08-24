@@ -3,6 +3,42 @@
 // Settings
 $defaultLang = "fi";
 
+/*
+function nojs() {
+
+    // TODO: All should work without JS. If JS, then drag-drop replace etc.
+    // Detect only no-js browsers. Other browsers get js.
+    //https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent
+    $browser_nojs = array('NetSurf', 'AWeb', 'Amiga', 'Links', 'w3m', 'MSIE');
+
+    $string = $_SERVER['HTTP_USER_AGENT'];
+    $nocount = 0;
+    foreach ($browser_nojs as $browser) {
+        if (strpos($string, $browser) !== FALSE) { // Yoshi version
+            $nocount = $nocount + 1;
+            //return true;
+        }
+    }
+
+    if ($nocount > 0) {
+       echo "Nojs browser";
+    } else {
+        echo "JS browser";
+    }
+
+    //echo "Not found!";
+    //return false;
+}
+
+echo '<html><head><title>Wekan</title></head><body><h1>';
+echo $_SERVER['HTTP_USER_AGENT'];
+echo '<br><br>';
+nojs();
+echo '</body></html>';
+die();
+*/
+
+
 // Settings: HTML head icons.
 $shortcutIcon = "favicon.ico";
 $appleTouchIcon180x180 = "apple-touch-icon.png";

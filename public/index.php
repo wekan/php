@@ -8,8 +8,26 @@
 
 // Change visible page based on $_PORT variable content.
 
+session_start();
+
+if (isset($_POST['at-field-username_and_email']) && isset($_POST['at-field-password'])) {
+    if ($_POST['at-field-username_and_email'] == 'test' && $_POST['at-field-password'] == 'test') {
+        $_SESSION["user"] = "test";
+    }
+    /*
+    else {
+        session_unset();
+        session_destroy();
+    }
+    */
+}
+
 if (isset($_GET['page'])) {
   $page = htmlspecialchars($_GET['page']);
+}
+
+if (isset($_SESSION["user"])) {
+  $page = 'allboards';
 }
 
 // Debugging
@@ -147,6 +165,7 @@ $translate = json_decode($langjson, true);
 
 
 if ($debug) {
+
   $indicesServer = array('PHP_SELF',
     'argv',
     'argc',
@@ -215,12 +234,10 @@ if ($debug) {
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>
-        <?php echo htmlentities($productName); ?>
-    </title>
+    <title><?php echo htmlentities($productName); ?></title>
+    <meta name="robots" content="noindex,nofollow">
     <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo urlencode($shortcutIcon); ?>">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo urlencode($appleTouchIcon180x180); ?>">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo urlencode($favicon32x32); ?>">
@@ -231,6 +248,20 @@ if ($debug) {
     <meta name="application-name" content="<?php echo htmlentities($productName); ?>">
     <meta name="msapplication-TileColor" content="#<?php echo strip_tags($msapplicationTileColor); ?>">
     <meta name="theme-color" content="#<?php echo strip_tags($themeColor); ?>">
+    <link rel="stylesheet" type="text/css" href="css/minimal.css">
+
+<?php
+
+/*
+    <noscript>
+    <link rel="stylesheet" type="text/css" href="css/minimal.css">
+    </noscript>
+
+<script type="text/javascript" src="js/style.js">
+    </script>
+
+*/
+?>
 </head>
 
 <body style="font-family: <?php echo strip_tags($font); ?>; background-color: #<?php echo strip_tags($bgColor); ?>">
@@ -238,52 +269,14 @@ if ($debug) {
 <?php
 
 /*
-  Index page: List of pages Wekan has
-*/
-
-if (!isset($_GET['page'])) {
-
-?>
-  <center>
-  <h1></h1>
-<?php
-
-    // Login logo image URL
-    if (!empty($loginLogoImageUrl)) {
-      echo '<img src="' . urlencode($loginLogoImageUrl) . '" alt="' . 
-      htmlentities($productName) .
-      '" width="' . strip_tags($loginLogoImageWidth) .
-      '" height="' . strip_tags($loginLogoImageHeight) . '">';
-    }
-
-?>
-
-<section class="auth-layout">
-  <section class="auth-dialog">
-    <div class="at-form">        
-        <h3>
-          <a class="button-link" href="?page=login">Login</a><br /><br />
-          <a class="button-link" href="?page=loginamiga">Login Amiga</a><br /><br />
-          <a class="button-link" href="?page=allboards">All Boards</a><br /><br />
-        </h3>
-    </div>          
-  </section>
-</section>
-
-  </center> 
-
-<?php
-
-/*
   Login page
 */
 
-} else if ($page == "loginamiga") {
+if (((!isset($_GET['page'])) || ($page == "login")) && (!isset($_SESSION["user"])) ) {
 
 ?>
 
     <center>
-        <h1></h1>
 
 <?php
 
@@ -312,236 +305,122 @@ if ($hideLogo != true) {
 ?>
         <br /><br />
 
-        <table border="0" margin="0" padding="0">
+<?php
+// <table width="80%" border="0" margin="0" padding="0">
+?>
+
+        <table>
             <tr>
                 <td align="left">
-                    <h3>
+                    <h1>
                         <?php echo htmlentities($translate["log-in"]); ?>
-                    </h3>
+                    </h1>
                     <form role="form" id="at-pwd-form" novalidate="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                         <div class="at-form-authentication">
-                            <label for="select-authentication">
-                                <?php echo htmlentities($translate["authentication-method"]); ?>
-                            </label>
+                            <label for="select-authentication"><?php echo htmlentities($translate["authentication-method"]); ?></label>
                             <select class="select-authentication">
-                                <option value="password">
-                                    <?php echo htmlentities($translate["password"]); ?>
-                                </option>
+                                <option value="password"><?php echo htmlentities($translate["password"]); ?></option>
                             </select>
                         </div>
+                        <br />
                         <div class="at-input">
-                            <label for="at-field-username_and_email">
-                                <?php echo htmlentities($translate["username"]) . " " . htmlentities($translate["or"]) . " " .htmlentities($translate["email"]); ?>
-                            </label><br />
+                            <label for="at-field-username_and_email"><?php echo htmlentities($translate["username"]) . " " . htmlentities($translate["or"]) . " " .htmlentities($translate["email"]); ?></label><br />
                             <input type="text" id="at-field-username_and_email" name="at-field-username_and_email" placeholder="" autocapitalize="none" autocorrect="off">
                         </div>
-                        <div class="at-input">
-                            <label for="at-field-password">
-                                <?php echo htmlentities($translate["password"]); ?>
-                            </label><br />
+                        <br />
+                        <div class="at-input"><label for="at-field-password"><?php echo htmlentities($translate["password"]); ?></label><br />
                             <input type="password" id="at-field-password" name="at-field-password" placeholder="" autocapitalize="none" autocorrect="off">
                         </div>
+                        <br />
                         <div class="at-select-lang">
                             <p>
                                 <select class="select-lang">
-                                    <option <?php if ($lang=="ar" ) {echo 'selected="selected"' ;}; ?> value="ar">Arabic / العربية
-                                    </option>
-                                    <option <?php if ($lang=="ar-EG" ) {echo 'selected="selected"' ;}; ?> value="ar-EG">Arabic (Egypt) /
-                                        مَصرى</option>
-                                    <option <?php if ($lang=="hy" ) {echo 'selected="selected"' ;}; ?> value="hy">Armenian / Հայերեն
-                                    </option>
-                                    <option <?php if ($lang=="eu" ) {echo 'selected="selected"' ;}; ?> value="eu">Basque / Euskara
-                                    </option>
-                                    <option <?php if ($lang=="br" ) {echo 'selected="selected"' ;}; ?> value="br">Breton / Brezhoneg
-                                    </option>
-                                    <option <?php if ($lang=="bg" ) {echo 'selected="selected"' ;}; ?> value="bg">Bulgarian / Български
-                                    </option>
-                                    <option <?php if ($lang=="ca" ) {echo 'selected="selected"' ;}; ?> value="ca">Catalan / Català
-                                    </option>
-                                    <option <?php if ($lang=="zh-CN" ) {echo 'selected="selected"' ;}; ?> value="zh-CN">Chinese (China) /
-                                        简体中文</option>
-                                    <option <?php if ($lang=="zh-HK" ) {echo 'selected="selected"' ;}; ?> value="zh-HK">Chinese (Hong
-                                        Kong) / 繁体中文（香港)</option>
-                                    <option <?php if ($lang=="zh-TW" ) {echo 'selected="selected"' ;}; ?> value="zh-TW">Chinese (Taiwan) /
-                                        繁體中文（台灣)</option>
-                                    <option <?php if ($lang=="hr" ) {echo 'selected="selected"' ;}; ?> value="hr">Croatian / Hrvatski
-                                    </option>
-                                    <option <?php if ($lang=="cs" ) {echo 'selected="selected"' ;}; ?> value="cs">Czech / čeština‎
-                                    </option>
+                                    <option <?php if ($lang=="ar" ) {echo 'selected="selected"' ;}; ?> value="ar">Arabic / العربية</option>
+                                    <option <?php if ($lang=="ar-EG" ) {echo 'selected="selected"' ;}; ?> value="ar-EG">Arabic (Egypt) /مَصرى</option>
+                                    <option <?php if ($lang=="hy" ) {echo 'selected="selected"' ;}; ?> value="hy">Armenian / Հայերեն</option>
+                                    <option <?php if ($lang=="eu" ) {echo 'selected="selected"' ;}; ?> value="eu">Basque / Euskara</option>
+                                    <option <?php if ($lang=="br" ) {echo 'selected="selected"' ;}; ?> value="br">Breton / Brezhoneg</option>
+                                    <option <?php if ($lang=="bg" ) {echo 'selected="selected"' ;}; ?> value="bg">Bulgarian / Български</option>
+                                    <option <?php if ($lang=="ca" ) {echo 'selected="selected"' ;}; ?> value="ca">Catalan / Català</option>
+                                    <option <?php if ($lang=="zh-CN" ) {echo 'selected="selected"' ;}; ?> value="zh-CN">Chinese (China) / 简体中文</option>
+                                    <option <?php if ($lang=="zh-HK" ) {echo 'selected="selected"' ;}; ?> value="zh-HK">Chinese (Hong Kong) / 繁体中文（香港)</option>
+                                    <option <?php if ($lang=="zh-TW" ) {echo 'selected="selected"' ;}; ?> value="zh-TW">Chinese (Taiwan) / 繁體中文（台灣)</option>
+                                    <option <?php if ($lang=="hr" ) {echo 'selected="selected"' ;}; ?> value="hr">Croatian / Hrvatski</option>
+                                    <option <?php if ($lang=="cs" ) {echo 'selected="selected"' ;}; ?> value="cs">Czech / čeština‎</option>
                                     <option <?php if ($lang=="da" ) {echo 'selected="selected"' ;}; ?> value="da">Danish / Dansk</option>
-                                    <option <?php if ($lang=="nl" ) {echo 'selected="selected"' ;}; ?> value="nl">Dutch / Nederlands
-                                    </option>
+                                    <option <?php if ($lang=="nl" ) {echo 'selected="selected"' ;}; ?> value="nl">Dutch / Nederlands</option>
                                     <option <?php if ($lang=="en" ) {echo 'selected="selected"' ;}; ?> value="en">English</option>
-                                    <option <?php if ($lang=="en-GB" ) {echo 'selected="selected"' ;}; ?> value="en-GB">English (UK)
-                                    </option>
+                                    <option <?php if ($lang=="en-GB" ) {echo 'selected="selected"' ;}; ?> value="en-GB">English (UK)</option>
                                     <option <?php if ($lang=="eo" ) {echo 'selected="selected"' ;}; ?> value="eo">Esperanto</option>
                                     <option <?php if ($lang=="fi" ) {echo 'selected="selected"' ;}; ?> value="fi">Finnish / Suomi</option>
-                                    <option <?php if ($lang=="fr" ) {echo 'selected="selected"' ;}; ?> value="fr">French / Français
-                                    </option>
-                                    <option <?php if ($lang=="gl" ) {echo 'selected="selected"' ;}; ?> value="gl">Galician / Galego
-                                    </option>
-                                    <option <?php if ($lang=="ka" ) {echo 'selected="selected"' ;}; ?> value="ka">Georgian / ქართული
-                                    </option>
-                                    <option <?php if ($lang=="de" ) {echo 'selected="selected"' ;}; ?> value="de">German (Germany) /
-                                        Deutsch</option>
-                                    <option <?php if ($lang=="de-CH" ) {echo 'selected="selected"' ;}; ?> value="de-CH">German
-                                        (Switzerland) / Deutsch (Schweiz)</option>
-                                    <option <?php if ($lang=="el" ) {echo 'selected="selected"' ;}; ?> value="el">Greek / Ελληνικά
-                                    </option>
+                                    <option <?php if ($lang=="fr" ) {echo 'selected="selected"' ;}; ?> value="fr">French / Français</option>
+                                    <option <?php if ($lang=="gl" ) {echo 'selected="selected"' ;}; ?> value="gl">Galician / Galego</option>
+                                    <option <?php if ($lang=="ka" ) {echo 'selected="selected"' ;}; ?> value="ka">Georgian / ქართული</option>
+                                    <option <?php if ($lang=="de" ) {echo 'selected="selected"' ;}; ?> value="de">German (Germany) / Deutsch</option>
+                                    <option <?php if ($lang=="de-CH" ) {echo 'selected="selected"' ;}; ?> value="de-CH">German (Switzerland) / Deutsch (Schweiz)</option>
+                                    <option <?php if ($lang=="el" ) {echo 'selected="selected"' ;}; ?> value="el">Greek / Ελληνικά</option>
                                     <option <?php if ($lang=="he" ) {echo 'selected="selected"' ;}; ?> value="he">Hebrew / עברית</option>
-                                    <option <?php if ($lang=="hu" ) {echo 'selected="selected"' ;}; ?> value="hu">Hungarian / Magyar
-                                    </option>
+                                    <option <?php if ($lang=="hu" ) {echo 'selected="selected"' ;}; ?> value="hu">Hungarian / Magyar</option>
                                     <option <?php if ($lang=="hi" ) {echo 'selected="selected"' ;}; ?> value="hi">Hindi / हिन्दी</option>
                                     <option <?php if ($lang=="ig" ) {echo 'selected="selected"' ;}; ?> value="ig">Igbo</option>
-                                    <option <?php if ($lang=="id" ) {echo 'selected="selected"' ;}; ?> value="id">Indonesian / Bahasa
-                                        Indonesia</option>
-                                    <option <?php if ($lang=="it" ) {echo 'selected="selected"' ;}; ?> value="it">Italian / Italiano
-                                    </option>
+                                    <option <?php if ($lang=="id" ) {echo 'selected="selected"' ;}; ?> value="id">Indonesian / Bahasa Indonesia</option>
+                                    <option <?php if ($lang=="it" ) {echo 'selected="selected"' ;}; ?> value="it">Italian / Italiano</option>
                                     <option <?php if ($lang=="ja" ) {echo 'selected="selected"' ;}; ?> value="ja">Japanese / 日本語</option>
-                                    <option <?php if ($lang=="km" ) {echo 'selected="selected"' ;}; ?> value="km">Khmer / ភាសាខ្មែរ
-                                    </option>
+                                    <option <?php if ($lang=="km" ) {echo 'selected="selected"' ;}; ?> value="km">Khmer / ភាសាខ្មែរ</option>
                                     <option <?php if ($lang=="ko" ) {echo 'selected="selected"' ;}; ?> value="ko">Korean / 한국어</option>
-                                    <option <?php if ($lang=="lv" ) {echo 'selected="selected"' ;}; ?> value="lv">Latvian / Latviešu
-                                    </option>
-                                    <option <?php if ($lang=="lt" ) {echo 'selected="selected"' ;}; ?> value="lt">Lithuanian / Lietuvių
-                                        kalba</option>
-                                    <option <?php if ($lang=="mk" ) {echo 'selected="selected"' ;}; ?> value="mk">Macedonian / македонски
-                                        јазик</option>
-                                    <option <?php if ($lang=="mn" ) {echo 'selected="selected"' ;}; ?> value="mn">Mongolian / Монгол
-                                    </option>
-                                    <option <?php if ($lang=="nb" ) {echo 'selected="selected"' ;}; ?> value="nb">Norwegian Bokmål / Norsk
-                                        bokmål</option>
-                                    <option <?php if ($lang=="oc" ) {echo 'selected="selected"' ;}; ?> value="oc">Occitan (post 1500)
-                                    </option>
+                                    <option <?php if ($lang=="lv" ) {echo 'selected="selected"' ;}; ?> value="lv">Latvian / Latviešu</option>
+                                    <option <?php if ($lang=="lt" ) {echo 'selected="selected"' ;}; ?> value="lt">Lithuanian / Lietuvių kalba</option>
+                                    <option <?php if ($lang=="mk" ) {echo 'selected="selected"' ;}; ?> value="mk">Macedonian / македонски јазик</option>
+                                    <option <?php if ($lang=="mn" ) {echo 'selected="selected"' ;}; ?> value="mn">Mongolian / Монгол</option>
+                                    <option <?php if ($lang=="nb" ) {echo 'selected="selected"' ;}; ?> value="nb">Norwegian Bokmål / Norsk bokmål</option>
+                                    <option <?php if ($lang=="oc" ) {echo 'selected="selected"' ;}; ?> value="oc">Occitan (post 1500)</option>
                                     <option <?php if ($lang=="fa" ) {echo 'selected="selected"' ;}; ?> value="fa">Persian / فارسی</option>
-                                    <option <?php if ($lang=="fa-IR" ) {echo 'selected="selected"' ;}; ?> value="fa-IR">Persian (Iran) /
-                                        فارسی/پارسی (ایران‎)</option>
-                                    <option <?php if ($lang=="pa" ) {echo 'selected="selected"' ;}; ?> value="pa">Panjabi (Punjabi) /
-                                        ਪੰਜਾਬੀ</option>
+                                    <option <?php if ($lang=="fa-IR" ) {echo 'selected="selected"' ;}; ?> value="fa-IR">Persian (Iran) / فارسی/پارسی (ایران‎)</option>
+                                    <option <?php if ($lang=="pa" ) {echo 'selected="selected"' ;}; ?> value="pa">Panjabi (Punjabi) /  ਪੰਜਾਬੀ</option>
                                     <option <?php if ($lang=="pl" ) {echo 'selected="selected"' ;}; ?> value="pl">Polish / Polski</option>
-                                    <option <?php if ($lang=="pt" ) {echo 'selected="selected"' ;}; ?> value="pt">Portuguese (Portugal) /
-                                        Português</option>
-                                    <option <?php if ($lang=="pt-BR" ) {echo 'selected="selected"' ;}; ?> value="pt-BR">Portuguese
-                                        (Brazil) / Português do Brasil</option>
-                                    <option <?php if ($lang=="ro" ) {echo 'selected="selected"' ;}; ?> value="ro">Romanian / Română
-                                    </option>
-                                    <option <?php if ($lang=="ru" ) {echo 'selected="selected"' ;}; ?> value="ru">Russian / Русский
-                                    </option>
-                                    <option <?php if ($lang=="sr" ) {echo 'selected="selected"' ;}; ?> value="sr">Serbian / Српски језик
-                                    </option>
-                                    <option <?php if ($lang=="sk" ) {echo 'selected="selected"' ;}; ?> value="sk">Slovak / Slovenčina
-                                    </option>
-                                    <option <?php if ($lang=="sl" ) {echo 'selected="selected"' ;}; ?> value="sl">Slovenian / slovenščina
-                                    </option>
-                                    <option <?php if ($lang=="es" ) {echo 'selected="selected"' ;}; ?> value="es">Spanish (Spain) /
-                                        español</option>
-                                    <option <?php if ($lang=="es-LA" ) {echo 'selected="selected"' ;}; ?> value="es-LA">Spanish (Latin
-                                        America) / español de América Latina</option>
-                                    <option <?php if ($lang=="es-AR" ) {echo 'selected="selected"' ;}; ?> value="es-AR">Spanish
-                                        (Argentina) / español de Argentina</option>
-                                    <option <?php if ($lang=="es-CL" ) {echo 'selected="selected"' ;}; ?> value="es-CL">Spanish (Chile) /
-                                        español de Chile</option>
-                                    <option <?php if ($lang=="es-MX" ) {echo 'selected="selected"' ;}; ?> value="es-MX">Spanish (Mexico) /
-                                        español de México</option>
-                                    <option <?php if ($lang=="es-PY" ) {echo 'selected="selected"' ;}; ?> value="es-PY">Spanish (Paraguay)
-                                        / español de Paraguayo</option>
-                                    <option <?php if ($lang=="es-PE" ) {echo 'selected="selected"' ;}; ?> value="es-PE">Spanish (Peru) /
-                                        español de Perú</option>
-                                    <option <?php if ($lang=="sv" ) {echo 'selected="selected"' ;}; ?> value="sv">Swedish / Svenska
-                                    </option>
-                                    <option <?php if ($lang=="sw" ) {echo 'selected="selected"' ;}; ?> value="sw">Swahili / Kiswahili
-                                    </option>
+                                    <option <?php if ($lang=="pt" ) {echo 'selected="selected"' ;}; ?> value="pt">Portuguese (Portugal) / Português</option>
+                                    <option <?php if ($lang=="pt-BR" ) {echo 'selected="selected"' ;}; ?> value="pt-BR">Portuguese (Brazil) / Português do Brasil</option>
+                                    <option <?php if ($lang=="ro" ) {echo 'selected="selected"' ;}; ?> value="ro">Romanian / Română</option>
+                                    <option <?php if ($lang=="ru" ) {echo 'selected="selected"' ;}; ?> value="ru">Russian / Русский</option>
+                                    <option <?php if ($lang=="sr" ) {echo 'selected="selected"' ;}; ?> value="sr">Serbian / Српски језик</option>
+                                    <option <?php if ($lang=="sk" ) {echo 'selected="selected"' ;}; ?> value="sk">Slovak / Slovenčina</option>
+                                    <option <?php if ($lang=="sl" ) {echo 'selected="selected"' ;}; ?> value="sl">Slovenian / slovenščina</option>
+                                    <option <?php if ($lang=="es" ) {echo 'selected="selected"' ;}; ?> value="es">Spanish (Spain) / español</option>
+                                    <option <?php if ($lang=="es-LA" ) {echo 'selected="selected"' ;}; ?> value="es-LA">Spanish (Latin America) / español de América Latina</option>
+                                    <option <?php if ($lang=="es-AR" ) {echo 'selected="selected"' ;}; ?> value="es-AR">Spanish (Argentina) / español de Argentina</option>
+                                    <option <?php if ($lang=="es-CL" ) {echo 'selected="selected"' ;}; ?> value="es-CL">Spanish (Chile) / español de Chile</option>
+                                    <option <?php if ($lang=="es-MX" ) {echo 'selected="selected"' ;}; ?> value="es-MX">Spanish (Mexico) / español de México</option>
+                                    <option <?php if ($lang=="es-PY" ) {echo 'selected="selected"' ;}; ?> value="es-PY">Spanish (Paraguay) / español de Paraguayo</option>
+                                    <option <?php if ($lang=="es-PE" ) {echo 'selected="selected"' ;}; ?> value="es-PE">Spanish (Peru) / español de Perú</option>
+                                    <option <?php if ($lang=="sv" ) {echo 'selected="selected"' ;}; ?> value="sv">Swedish / Svenska</option>
+                                    <option <?php if ($lang=="sw" ) {echo 'selected="selected"' ;}; ?> value="sw">Swahili / Kiswahili</option>
                                     <option <?php if ($lang=="ta" ) {echo 'selected="selected"' ;}; ?> value="ta">Tamil / தமிழ்</option>
                                     <option <?php if ($lang=="th" ) {echo 'selected="selected"' ;}; ?> value="th">Thai / ไทย</option>
-                                    <option <?php if ($lang=="tr" ) {echo 'selected="selected"' ;}; ?> value="tr">Turkish / Türkçe
-                                    </option>
-                                    <option <?php if ($lang=="uk" ) {echo 'selected="selected"' ;}; ?> value="uk">Ukrainian / Українська
-                                    </option>
-                                    <option <?php if ($lang=="vi" ) {echo 'selected="selected"' ;}; ?> value="vi">Vietnamese / Tiếng Việt
-                                    </option>
+                                    <option <?php if ($lang=="tr" ) {echo 'selected="selected"' ;}; ?> value="tr">Turkish / Türkçe</option>
+                                    <option <?php if ($lang=="uk" ) {echo 'selected="selected"' ;}; ?> value="uk">Ukrainian / Українська</option>
+                                    <option <?php if ($lang=="vi" ) {echo 'selected="selected"' ;}; ?> value="vi">Vietnamese / Tiếng Việt</option>
                                 </select>
                             </p>
                         </div>
                         <input type="submit" name="login" class="at-btn submit" id="at-btn" value="<?php echo htmlentities($translate["log-in"]); ?>">
                     </form>
 
-                    <?php
-/*
-        <div class="at-pwd-link">
-          <p>
-          <a href="/forgot-password" id="at-forgotPwd" class="at-link at-pwd">Forgot password</a>
-          </p>
-        </div>
+                    <br />
 
-          <!--          Don't you have account? Register -->
-
-*/
-?>
                     <div class="at-signup-link">
-                        <p>
-                            <a href="/sign-up" id="at-signUp" class="at-link at-signup">
-                                <?php echo htmlentities($translate["registration"]); ?>
-                            </a>
-                        </p>
+                        <p><a href="/sign-up" id="at-signUp" class="at-link at-signup"><?php echo htmlentities($translate["registration"]); ?></a></p>
                     </div>
+                    <br />
+
+                    <div class="at-pwd-link">
+                    <p><a href="/forgot-password" id="at-forgotPwd" class="at-link at-pwd">Forgot password</a></p>
+                    </div>
+
                 </td>
             </tr>
         </table>
     </center>
-
-    <?php
-/* 
-  Login page
-*/
-
-} else if ($page == "login") {
-
-?>
-
-<section class="auth-layout">
-<h1 class="at-form-landing-logo"></h1><img src="logo-header.png" alt="" width="300" height="auto"><br>
-<section class="auth-dialog">
-    <div class="at-form">
-        <div class="at-title">
-    <h3>Kirjaudu sisään</h3>
-  </div>
-  <div class="at-error">    
-     <p>Täytyy olla kirjautuneena sisään</p>
-  </div>
-        <div class="at-pwd-form"><div class="at-form-authentication" style="display: none;"><label>Authentication method</label>
-<select class="select-authentication"><option value="password">Password</option></select></div>
-    <form role="form" id="at-pwd-form" novalidate="" action="#" method="POST">
-    <div class="at-input">    
-      <label for="at-field-username_and_email">
-        Käyttäjätunnus tai sähköposti 
-      </label>
-    <input type="text" id="at-field-username_and_email" name="at-field-username_and_email" placeholder="Käyttäjätunnus tai sähköposti" autocapitalize="none" autocorrect="off">
-  </div>    
-    <div class="at-input">
-      <label for="at-field-password">
-        Salasana 
-      </label>    
-    <input type="password" id="at-field-password" name="at-field-password" placeholder="Salasana" autocapitalize="none" autocorrect="off">
-  </div>
-        <div class="at-pwd-link">
-    <p>
-      <a href="/forgot-password" id="at-forgotPwd" class="at-link at-pwd">Unohditko salasanasi?</a>
-    </p>
-  </div>
-      <button type="submit" class="at-btn submit" id="at-btn">
-    Kirjaudu sisään
-  </button>
-    </form>
-  </div>
-        <div class="at-signup-link">
-    <p>
-      Eikö sinulla ole tiliä?
-      <a href="/sign-up" id="at-signUp" class="at-link at-signup">Rekisteröidy</a>
-    </p>
-  </div>
-    </div>
-  <div class="at-form-lang"><select class="select-lang js-userform-set-language"><option value="id">Bahasa Indonesia</option><option value="br">Brezhoneg</option><option value="ca">Català</option><option value="da">Dansk</option><option value="de">Deutsch</option><option value="de-CH">Deutsch (Schweiz)</option><option value="en">English</option><option value="en-GB">English (UK)</option><option value="eo">Esperanto</option><option value="eu">Euskara</option><option value="fr">Français</option><option value="gl">Galego</option><option value="hr">Hrvatski</option><option value="ig">Igbo</option><option value="it">Italiano</option><option value="sw">Kiswahili</option><option value="lv">Latviešu</option><option value="lt">Lietuvių kalba</option><option value="hu">Magyar</option><option value="nl">Nederlands</option><option value="nb">Norsk bokmål</option><option value="oc">Occitan</option><option value="pl">Polski</option><option value="pt">Português</option><option value="pt-BR">Português do Brasil</option><option value="ro">Română</option><option value="sk">Slovenčina</option><option value="fi">Suomi</option><option value="sv">Svenska</option><option value="vi">Tiếng Việt</option><option value="tr">Türkçe</option><option value="es">español</option><option value="es-LA">español de América Latina</option><option value="es-AR">español de Argentina</option><option value="es-CL">español de Chile</option><option value="es-MX">español de México</option><option value="es-PY">español de Paraguayo</option><option value="es-PE">español de Perú</option><option value="sl">slovenščina</option><option value="cs">čeština‎</option><option value="el">Ελληνικά</option><option value="bg">Български</option><option value="mn">Монгол</option><option value="ru">Русский</option><option value="sr">Српски језик</option><option value="uk">Українська</option><option value="mk">македонски јазик</option><option value="hy">Հայերեն</option><option value="he">עברית</option><option value="ar">العربية</option><option value="fa">فارسی</option><option value="fa-IR">فارسی/پارسی (ایران‎)</option><option value="ar-EG">مَصرى</option><option value="hi">हिन्दी</option><option value="pa">ਪੰਜਾਬੀ</option><option value="ta">தமிழ்</option><option value="th">ไทย</option><option value="ka">ქართული</option><option value="km">ភាសាខ្មែរ</option><option value="ja">日本語</option><option value="zh-CN">简体中文</option><option value="zh-HK">繁体中文（香港）</option><option value="zh-TW">繁體中文（台灣）</option><option value="ko">한국어</option></select></div></section></section></body>
 
 <?php
 
@@ -561,107 +440,73 @@ if ($hideLogo != true) {
   All Boards page
 */
 
-} else if ($page == "allboards") {
+} else if (((!isset($_GET['page'])) || ($page == "allboards")) && (isset($_SESSION["user"])) ) {
 
 ?>
-
-
-    <div id="header-quick-access" class="">
-        <img src="logo-header.png" alt=""><span class="allBoards">
-            <a href="/"><img src="img/home.png">
-                All boards</a></span>
-        <ul class="header-quick-access-list">
-            <!--li-->
-            <!--  a(href="{{pathFor 'public'}}")-->
-            <!--    span.fa.fa-globe-->
-            <!--    | {{_ 'public'}}-->
-            <li class="current empty">Star a board to add a shortcut in this bar.</li>
-        </ul>
-        <!-- Next line is used only for spacing at header,-->
-        <!-- there is no visible clickable icon.-->
-        <div id="header-new-board-icon"></div>
-        <!--  Hide duplicate create board button,-->
-        <!--  because it did not show board templates correctly.-->
-        <!--a#header-new-board-icon.js-create-board-->
-        <!--  i.fa.fa-plus(title="Create a new board")-->
-        <div id="notifications" class="board-header-btns right">
-            <a class="notifications-drawer-toggle fa fa-bell" href="#"></a>
+    <div class="navigation">
+        <div style="float: left; text-align: left;">
+            <img src="logo-header.png" alt="">
+            <span class="allBoards"><a href="/"><img src="img/home.png"><?php echo htmlentities($translate["all-boards"]); ?></a></span>
+            <span class="current empty">Star a board to add a shortcut in this bar.</span>
         </div>
-        <div id="header-user-bar">
-            <a class="header-user-bar-name js-open-header-member-menu" href="#">
-                <div class="header-user-bar-avatar"><a class="member js-member" title=" (testtest) Normal" href="#" aria-label=" (testtest) Normal">
-                        <svg class="avatar avatar-initials" viewBox="0 0 12 15">
-                            <text x="50%" y="13" text-anchor="middle">T</text>
-                        </svg>
-
-                    </a></div>
-                testtest
-            </a>
+        <div style="float: right; text-align: right;">
+            <span><a class="notifications-drawer-toggle fa fa-bell" href="#">Notifications</a></span>
+            <span><?php echo $_SESSION["user"]; ?></span>
         </div>
     </div>
-    <div id="header" class="">
-        <div id="header-main-bar" class="wrapper">
+    <div style="position:absolute; top: 50px;">
+            <h1><?php echo htmlentities($translate["my-boards"]); ?></h1>
+
+ <div style="text-align: center; min-height: 100px; border: 1px solid black; padding: 2px; border-radius: 10px 10px 10px 10px;"><br /><br /><?php echo htmlentities($translate["add-board"]); ?></a></div>
+
+ <div style="min-height: 100px; border: 1px solid black; padding: 2px; border-radius: 10px 10px 10px 10px;">hep hei<br>joojojoj jodsjfdo fjsodf fjdos<br>jijdijgsidji<br>okfodskfso</div>
+
+ <div class="minicard">hep hei<br>joojojoj jodsjfdo fjsodf fjdos<br>jijdijgsidji<br>okfodskfso</div>
+
+</div>
+<div class="dates">
+<div class="date"><a class="js-edit-date card-date start-date current" title="Alkaa tiistai, 7. tammikuuta 2020, klo 09.00" href="#" aria-label="Alkaa tiistai, 7. tammikuuta 2020, klo 09.00"><time datetime="2020-01-07T07:00:00.000Z">7.1.2020</time></a></div>
+<div class="date"><a class="js-edit-date card-date due-date long-overdue" title="Erääntyy torstai, 30. tammikuuta 2020, klo 15.00" href="#" aria-label="Erääntyy torstai, 30. tammikuuta 2020, klo 15.00"><time datetime="2020-01-30T13:00:00.000Z">30.1.2020</time></a></div>
+
+<div class="date"><a class="js-edit-time card-time card-label-green" title="Käytetty aika 3 tuntia" href="#" aria-label="Käytetty aika 3 tuntia">3</a></div></div>
+<div class="minicard-custom-fields"></div>
 
 
-            <h1>My Boards</h1>
-            <!--.board-header-btns.right-->
-            <!--  a.board-header-btn.js-open-archived-board-->
-            <!--    i.fa.fa-archive-->
-            <!--    span {{_ 'archives'}}-->
-            <!--  a.board-header-btn(href="{{pathFor 'board' id=templatesBoardId slug=templatesBoardSlug}}")-->
-            <!--    i.fa.fa-clone-->
-            <!--    span {{_ 'templates'}}-->
 
-        </div>
-    </div>
-    <div id="content">
-        <div class="wrapper">
-            <ul class="board-list clearfix js-boards ui-sortable">
-                <li class="js-add-board"><a class="board-list-item label" href="#">Add Board</a></li>
-                <li class="board-color-belize js-board ui-sortable-handle"><a class="js-open-board board-list-item" href="/b/ttHaGXzTJLsW9BRCu/hei"><span class="details"><span class="board-list-item-name">
-                                <div class="viewer" dir="auto">
-                                    <p>Hei</p>
-                                </div>
-                            </span>
-                            <i class="fa js-star-board fa-star-o" title="Click to star this board. It will show up at top of your boards list." aria-label="Click to star this board. It will show up at top of your boards list."></i>
-                            <p class="board-list-item-desc">
-                                <div class="viewer" dir="auto">
-                                    <p>Jops</p>
-                                </div>
-                            </p>
+<div class="badges">
+<div class="badge badge-state-image-only" title="Testing checklists etc with Wekan, The Open Source Trello-like kanban https://wekan.github.io"><span class="badge-icon fa fa-align-left"></span></div>
+<div class="badge badge-state-image-only" title="Cool?"><span class="badge-icon fa fa-thumbs-up text-green"></span>
+<span class="badge-text">1</span>
+<span class="badge-icon fa fa-thumbs-down"></span>
+<span class="badge-text">0</span></div>
+<div class="badge badge-state-image-only" title="true"><span class="badge-icon fa fa-check text-green"></span>
+</div>
+<div class="badge"><span class="badge-icon fa fa-paperclip"></span>
+<span class="badge-text">1</span></div>
+<div class="badge"><span class="badge-icon fa fa-check-square-o"></span>
+<span class="badge-text check-list-text">1/3</span></div>
+
+</div></div></a>
+
+<a class="open-minicard-composer js-card-composer js-open-inlined-form" title="Lisää kortti listan loppuun" href="#" aria-label="Lisää kortti listan loppuun"><i class="fa fa-plus"></i></a></div>
 
 
-                            <i class="fa js-clone-board fa-clone" title="Duplicate Board" aria-label="Duplicate Board"></i><i class="fa js-archive-board fa-archive" title="Move Board to Archive" aria-label="Move Board to Archive"></i>
-                        </span></a></li>
-                <li class="board-color-nephritis js-board ui-sortable-handle"><a class="js-open-board board-list-item" href="/b/KBuy7ZBR8m5HngdZn/toka"><span class="details"><span class="board-list-item-name">
-                                <div class="viewer" dir="auto">
-                                    <p>Toka</p>
-                                </div>
-                            </span>
-                            <i class="fa js-star-board fa-star-o" title="Click to star this board. It will show up at top of your boards list." aria-label="Click to star this board. It will show up at top of your boards list."></i>
-                            <p class="board-list-item-desc">
-                                <div class="viewer" dir="auto"></div>
-                            </p>
 
-
-                            <i class="fa js-clone-board fa-clone" title="Duplicate Board" aria-label="Duplicate Board"></i><i class="fa js-archive-board fa-archive" title="Move Board to Archive" aria-label="Move Board to Archive"></i>
-                        </span></a></li>
-                <li class="board-color-pumpkin js-board ui-sortable-handle"><a class="js-open-board board-list-item" href="/b/P8tDMSkGFsmzpXgio/kolmas"><span class="details"><span class="board-list-item-name">
-                                <div class="viewer" dir="auto">
-                                    <p>Kolmas</p>
-                                </div>
-                            </span>
-                            <i class="fa js-star-board fa-star-o" title="Click to star this board. It will show up at top of your boards list." aria-label="Click to star this board. It will show up at top of your boards list."></i>
-                            <p class="board-list-item-desc">
-                                <div class="viewer" dir="auto"></div>
-                            </p>
-
-
-                            <i class="fa js-clone-board fa-clone" title="Duplicate Board" aria-label="Duplicate Board"></i><i class="fa js-archive-board fa-archive" title="Move Board to Archive" aria-label="Move Board to Archive"></i>
-                        </span></a></li>
-            </ul>
-        </div>
-    </div>
+<script>
+function allowDrop(ev) {ev.preventDefault();}
+function drag(ev) {ev.dataTransfer.setData("text/html", ev.target.id);}
+function drop(ev) {
+ev.preventDefault();
+var data = ev.dataTransfer.getData("text/html");
+ev.target.appendChild(document.getElementById(data));
+}
+</script>
+<p>Drag the javatpoint image into the rectangle:</p>
+<div id="div1" style="width:350px;height:100px;padding:10px;border:1px solid #aaaaaa;"
+ondrop="drop(event)" ondragover="allowDrop(event)" droppable="true"></div>
+<br>
+<img id="drag1" src="Square44x44Logo.scale-100.png" alt="javatpoint image"
+draggable="true" ondragstart="drag(event)"/>
 
 
 <?php 
@@ -732,8 +577,43 @@ if ($hideLogo != true) {
 
 } else if ($page == "adminpanel") {
 
+} else if ($page == "index") {
+
+/*
+  Index page: List of pages Wekan has
+*/
+
+?>
+  <center>
+  <h1></h1>
+<?php
+
+    // Login logo image URL
+    if (!empty($loginLogoImageUrl)) {
+      echo '<img src="' . urlencode($loginLogoImageUrl) . '" alt="' .
+      htmlentities($productName) .
+      '" width="' . strip_tags($loginLogoImageWidth) .
+      '" height="' . strip_tags($loginLogoImageHeight) . '">';
+    }
+
+?>
+
+<section class="auth-layout">
+  <section class="auth-dialog">
+    <div class="at-form">
+        <h3>
+          <a class="button-link" href="?page=login">Login</a><br /><br />
+          <a class="button-link" href="?page=allboards">All Boards</a><br /><br />
+        </h3>
+    </div>
+  </section>
+</section>
+
+  </center>
+
+<?php
+
 }
-  
 ?>
 
 </body>

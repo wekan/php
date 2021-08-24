@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>Shopping Anyone?</title>
+
+<script language="JScript"><!--
+// the object that you are dragging:
+var srcObj = new Object;
+
+// string to hold source of object being dragged:
+var dummyObj;
+
+function startDrag(){
+    // get what is being dragged:
+    srcObj = window.event.srcElement;
+
+    // store the source of the object into a string acting as a dummy object so we don't ruin the original object:
+    dummyObj = srcObj.outerHTML;
+
+    // post the data for Windows:
+    var dragData = window.event.dataTransfer;
+
+    // set the type of data for the clipboard:
+    dragData.setData('Text', window.event.srcElement.src);
+
+    // allow only dragging that involves moving the object:
+    dragData.effectAllowed = 'linkMove';
+
+    // use the special 'move' cursor when dragging:
+    dragData.dropEffect = 'move';
+}
+
+function enterDrag() {
+    // allow target object to read clipboard:
+    window.event.dataTransfer.getData('Text');
+}
+
+function endDrag() {
+    // when done remove clipboard data
+    window.event.dataTransfer.clearData();
+}
+
+function overDrag() {
+    // tell onOverDrag handler not to do anything:
+    window.event.returnValue = false;
+}
+
+function drop() {
+    // eliminate default action of ondrop so we can customize:
+    window.event.returnValue = false;
+
+    // manually add new attributes:
+    dummyObj = addAttribute(dummyObj, 'height="25" width="25" alt="' + srcObj.myLabel + '"');
+
+    // add the picture below shopping cart:
+    miniProductBar.innerHTML += dummyObj + '&nbsp;';
+
+    // change shopping cart message:
+    productBarStatus.innerHTML = '<b>' + srcObj.myLabel + '<\/b> has been added to the shopping cart.';
+}
+
+// since we aren't working with an actual object, we will add our attributes manually:
+function addAttribute(oObj, sVal) {
+    var loc = oObj.indexOf(">");
+    return oObj.substring(0, loc) + ' ' + sVal + '>';
+}
+//--></script>
+
+</head>
+
+<body>
+
+<!-----------------DRAG THESE IMAGES---------------------------->
+
+<p align="right">
+<img src="jsbible.gif" ondragstart="startDrag()" ondragend="endDrag()" myLabel="Java Script SuperBible" border="1">
+<img src="dhtml.gif"   ondragstart="startDrag()" ondragend="endDrag()" myLabel="Dynamic HTML" border="1">
+<img src="html.gif"    ondragstart="startDrag()" ondragend="endDrag()" myLabel="HTML 4 Super Bible" border="1"> 
+</p>
+
+<!--------------------------------------CART-------------------------------->
+
+<img src="cart.jpg" id="cart" ondrop="drop()" ondragover="overDrag()" ondragenter="enterDrag()">
+
+<!------------------------------------PRODUCT BAR STATUS-------------------->
+
+<div id="productBarStatus" style="font-family:arial; font-size:9pt">Drag Items Into Shopping Cart. Works in IE 5.0 only.</div>
+
+<!-------------------------------------MINI PRODUCT BAR--------------------->
+
+<div id="miniProductBar" style="width:400px; height:100px;"></div>
+
+</body>
+</html>
