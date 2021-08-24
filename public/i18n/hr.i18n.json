@@ -81,6 +81,7 @@
     "activity-endDate": "edited end date to %s of %s",
     "add-attachment": "Dodaj privitak",
     "add-board": "Dodaj ploču",
+    "add-template": "Add Template",
     "add-card": "Dodaj karticu",
     "add-card-to-top-of-list": "Add Card to Top of List",
     "add-card-to-bottom-of-list": "Add Card to Bottom of List",
@@ -88,6 +89,7 @@
     "add-subtask": "Dodaj podzadatak",
     "add-checklist": "Dodaj listu provjere",
     "add-checklist-item": "Dodaj stavku listi provjere",
+    "convertChecklistItemToCardPopup-title": "Convert to Card",
     "add-cover": "Dodaj naslovnicu",
     "add-label": "Dodaj oznaku",
     "add-list": "Dodaj listu",
@@ -119,6 +121,8 @@
     "archives": "Arhiva",
     "template": "Predložak",
     "templates": "Predlošci",
+    "template-container": "Template Container",
+    "add-template-container": "Add Template Container",
     "assign-member": "Dodijeli člana",
     "attached": "u prilogu",
     "attachment": "Privitak",
@@ -318,6 +322,7 @@
     "editCardStartDatePopup-title": "Promijeni datum početka",
     "editCardDueDatePopup-title": "Promijeni datum dospijeća",
     "editCustomFieldPopup-title": "Uredi polje",
+    "addReactionPopup-title": "Add reaction",
     "editCardSpentTimePopup-title": "Change spent time",
     "editLabelPopup-title": "Promijeni oznaku",
     "editNotificationPopup-title": "Edit Notification",
@@ -1053,5 +1058,7 @@
     "Scaleout": "Scaleout Wait Spinner",
     "Wave": "Wave Wait Spinner",
     "maximize-card": "Maximize Card",
-    "minimize-card": "Minimize Card"
+    "minimize-card": "Minimize Card",
+    "delete-org-warning-message": "Can not delete this organization, there is at least one user that belongs to it",
+    "delete-team-warning-message": "Can not delete this team, there is at least one user that belongs to it"
 }

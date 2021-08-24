@@ -81,6 +81,7 @@
     "activity-endDate": "hat Enddatum zu %s geändert auf %s",
     "add-attachment": "Datei anhängen",
     "add-board": "neues Board",
+    "add-template": "Vorlage hinzufügen",
     "add-card": "Karte hinzufügen",
     "add-card-to-top-of-list": "Karte am Anfang der Liste hinzufügen",
     "add-card-to-bottom-of-list": "Karte am Ende der Liste hinzufügen",
@@ -88,6 +89,7 @@
     "add-subtask": "Teilaufgabe hinzufügen",
     "add-checklist": "Checkliste hinzufügen",
     "add-checklist-item": "Element zu Checkliste hinzufügen",
+    "convertChecklistItemToCardPopup-title": "Zu Karte umwandeln",
     "add-cover": "Cover hinzufügen",
     "add-label": "Label hinzufügen",
     "add-list": "Liste hinzufügen",
@@ -119,6 +121,8 @@
     "archives": "Archiv",
     "template": "Vorlage",
     "templates": "Vorlagen",
+    "template-container": "Vorlagen-Container",
+    "add-template-container": "Vorlagen-Container hinzufügen",
     "assign-member": "Mitglied zuweisen",
     "attached": "angehängt",
     "attachment": "Anhang",
@@ -318,6 +322,7 @@
     "editCardStartDatePopup-title": "Startdatum ändern",
     "editCardDueDatePopup-title": "Fälligkeitsdatum ändern",
     "editCustomFieldPopup-title": "Feld bearbeiten",
+    "addReactionPopup-title": "Reaktion hinzufügen",
     "editCardSpentTimePopup-title": "Aufgewendete Zeit ändern",
     "editLabelPopup-title": "Label ändern",
     "editNotificationPopup-title": "Benachrichtigung ändern",
@@ -1053,5 +1058,7 @@
     "Scaleout": "Scaleout-Warte-Symbol",
     "Wave": "Wellen-Warte-Symbol",
     "maximize-card": "Karte maximieren",
-    "minimize-card": "Karte minimieren"
+    "minimize-card": "Karte minimieren",
+    "delete-org-warning-message": "Diese Organisation kann nicht gelöscht werden, da wenigstens ein Nutzer dazu gehört.",
+    "delete-team-warning-message": "Dieses Team kann nicht gelöscht werden, da wenigstens ein Nutzer dazu gehört."
 }

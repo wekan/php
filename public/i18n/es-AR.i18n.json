@@ -81,6 +81,7 @@
     "activity-endDate": "edited end date to %s of %s",
     "add-attachment": "Agregar Adjunto",
     "add-board": "Agregar Tablero",
+    "add-template": "Add Template",
     "add-card": "Agregar Tarjeta",
     "add-card-to-top-of-list": "Add Card to Top of List",
     "add-card-to-bottom-of-list": "Add Card to Bottom of List",
@@ -88,6 +89,7 @@
     "add-subtask": "Agregar Subtarea",
     "add-checklist": "Agregar Lista de Tareas",
     "add-checklist-item": "Agregar ítem a lista de tareas",
+    "convertChecklistItemToCardPopup-title": "Convert to Card",
     "add-cover": "Agregar Portadas",
     "add-label": "Agregar Etiqueta",
     "add-list": "Agregar Lista",
@@ -119,6 +121,8 @@
     "archives": "Archivar",
     "template": "Plantilla",
     "templates": "Plantillas",
+    "template-container": "Template Container",
+    "add-template-container": "Add Template Container",
     "assign-member": "Asignar miembro",
     "attached": "adjunto(s)",
     "attachment": "Adjunto",
@@ -318,6 +322,7 @@
     "editCardStartDatePopup-title": "Cambiar fecha de inicio",
     "editCardDueDatePopup-title": "Cambiar fecha de vencimiento",
     "editCustomFieldPopup-title": "Edit Field",
+    "addReactionPopup-title": "Add reaction",
     "editCardSpentTimePopup-title": "Cambiar tiempo empleado",
     "editLabelPopup-title": "Cambiar Etiqueta",
     "editNotificationPopup-title": "Editar Notificación",
@@ -1053,5 +1058,7 @@
     "Scaleout": "Scaleout Wait Spinner",
     "Wave": "Wave Wait Spinner",
     "maximize-card": "Maximize Card",
-    "minimize-card": "Minimize Card"
+    "minimize-card": "Minimize Card",
+    "delete-org-warning-message": "Can not delete this organization, there is at least one user that belongs to it",
+    "delete-team-warning-message": "Can not delete this team, there is at least one user that belongs to it"
 }

@@ -81,6 +81,7 @@
     "activity-endDate": "einddatum gewijzigd naar %s van %s ",
     "add-attachment": "Bijlage Toevoegen",
     "add-board": "Bord Toevoegen",
+    "add-template": "Template Toevoegen",
     "add-card": "Kaart Toevoegen",
     "add-card-to-top-of-list": "Voeg Kaart Boven Aan de Lijst Toe",
     "add-card-to-bottom-of-list": "Voeg Kaart Onder Aan de Lijst Toe",
@@ -88,6 +89,7 @@
     "add-subtask": "Subtaak Toevoegen",
     "add-checklist": "Checklist toevoegen",
     "add-checklist-item": "Voeg item toe aan checklist",
+    "convertChecklistItemToCardPopup-title": "Converteer naar Kaart",
     "add-cover": "Cover Toevoegen",
     "add-label": "Label Toevoegen",
     "add-list": "Lijst Toevoegen",
@@ -119,6 +121,8 @@
     "archives": "Archief",
     "template": "Template",
     "templates": "Templates",
+    "template-container": "Template Container",
+    "add-template-container": "Template Container Toevoegen",
     "assign-member": "Lid toevoegen",
     "attached": "bijgevoegd",
     "attachment": "Bijlage",
@@ -318,6 +322,7 @@
     "editCardStartDatePopup-title": "Wijzig start datum",
     "editCardDueDatePopup-title": "Wijzig vervaldatum",
     "editCustomFieldPopup-title": "Wijzig Veld",
+    "addReactionPopup-title": "Reactie toevoegen",
     "editCardSpentTimePopup-title": "Verander gespendeerde tijd",
     "editLabelPopup-title": "Wijzig label",
     "editNotificationPopup-title": "Wijzig notificatie",
@@ -1053,5 +1058,7 @@
     "Scaleout": "Vergrotende Wacht Spinner",
     "Wave": "Golvende Wacht Spinner",
     "maximize-card": "Maximaliseer Kaart",
-    "minimize-card": "Minimaliseer Kaart"
+    "minimize-card": "Minimaliseer Kaart",
+    "delete-org-warning-message": "Kan deze organisatie niet verwijderen want er is nog minimaal 1 gebruiker lid van.",
+    "delete-team-warning-message": "Kan dit team niet verwijderen want er is nog minimaal 1 gebruiker lid van."
 }

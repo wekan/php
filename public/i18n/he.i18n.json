@@ -81,6 +81,7 @@
     "activity-endDate": "תאריך הסיום השתנה מ־%s ל־%s",
     "add-attachment": "הוספת קובץ מצורף",
     "add-board": "הוספת לוח",
+    "add-template": "הוספת תבנית",
     "add-card": "הוספת כרטיס",
     "add-card-to-top-of-list": "הוספת כרטיס לראש הרשימה",
     "add-card-to-bottom-of-list": "הוספת כרטיס לתחתית הרשימה",
@@ -88,6 +89,7 @@
     "add-subtask": "הוסף תת משימה",
     "add-checklist": "הוספת רשימת מטלות",
     "add-checklist-item": "הוספת פריט לרשימת משימות",
+    "convertChecklistItemToCardPopup-title": "המרה לכרטיס",
     "add-cover": "הוספת כיסוי",
     "add-label": "הוספת תווית",
     "add-list": "הוספת רשימה",
@@ -119,6 +121,8 @@
     "archives": "להעביר לארכיון",
     "template": "תבנית",
     "templates": "תבניות",
+    "template-container": "מכולה לתבנית",
+    "add-template-container": "הוספת מכולה לתבנית",
     "assign-member": "הקצאת חבר",
     "attached": "מצורף",
     "attachment": "קובץ מצורף",
@@ -318,6 +322,7 @@
     "editCardStartDatePopup-title": "שינוי מועד התחלה",
     "editCardDueDatePopup-title": "שינוי מועד סיום",
     "editCustomFieldPopup-title": "עריכת שדה",
+    "addReactionPopup-title": "הוספת סימון כתגובה",
     "editCardSpentTimePopup-title": "שינוי הזמן שהושקע",
     "editLabelPopup-title": "שינוי תווית",
     "editNotificationPopup-title": "שינוי דיווח",
@@ -1053,5 +1058,7 @@
     "Scaleout": "שבשבת המתנה התרחקות",
     "Wave": "שבשבת המתנה גל",
     "maximize-card": "הגדלת כרטיס",
-    "minimize-card": "מזעור כרטיס"
+    "minimize-card": "מזעור כרטיס",
+    "delete-org-warning-message": "לא ניתן למחוק את הארגון הזה, יש לפחות משתמש אחד ששייך אליו",
+    "delete-team-warning-message": "לא ניתן למחוק את הצוות הזה, יש לפחות משתמש אחד ששייך אליו"
 }

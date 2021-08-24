@@ -81,6 +81,7 @@
     "activity-endDate": "edited end date to %s of %s",
     "add-attachment": "संलग्न करें",
     "add-board": "बोर्ड जोड़ें",
+    "add-template": "Add Template",
     "add-card": "कार्ड जोड़ें",
     "add-card-to-top-of-list": "Add Card to Top of List",
     "add-card-to-bottom-of-list": "Add Card to Bottom of List",
@@ -88,6 +89,7 @@
     "add-subtask": "उप कार्य जोड़ें",
     "add-checklist": "चिह्नांकन-सूची जोड़ें",
     "add-checklist-item": "चिह्नांकन-सूची विषय कोई तक जोड़ें",
+    "convertChecklistItemToCardPopup-title": "Convert to Card",
     "add-cover": "आवरण जोड़ें",
     "add-label": "नामपत्र जोड़ें",
     "add-list": "सूची जोड़ें",
@@ -119,6 +121,8 @@
     "archives": "पुरालेख",
     "template": "खाका",
     "templates": "खाका",
+    "template-container": "Template Container",
+    "add-template-container": "Add Template Container",
     "assign-member": "आवंटित सदस्य",
     "attached": "संलग्न",
     "attachment": "संलग्नक",
@@ -318,6 +322,7 @@
     "editCardStartDatePopup-title": "Change start date",
     "editCardDueDatePopup-title": "Change due date",
     "editCustomFieldPopup-title": "संपादित करें Field",
+    "addReactionPopup-title": "Add reaction",
     "editCardSpentTimePopup-title": "Change spent time",
     "editLabelPopup-title": "Change Label",
     "editNotificationPopup-title": "संपादित करें Notification",
@@ -1053,5 +1058,7 @@
     "Scaleout": "Scaleout Wait Spinner",
     "Wave": "Wave Wait Spinner",
     "maximize-card": "Maximize Card",
-    "minimize-card": "Minimize Card"
+    "minimize-card": "Minimize Card",
+    "delete-org-warning-message": "Can not delete this organization, there is at least one user that belongs to it",
+    "delete-team-warning-message": "Can not delete this team, there is at least one user that belongs to it"
 }

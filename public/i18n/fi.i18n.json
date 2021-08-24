@@ -81,6 +81,7 @@
     "activity-endDate": "muokkasi loppumispäiväksi %s / %s",
     "add-attachment": "Lisää liite",
     "add-board": "Lisää taulu",
+    "add-template": "Lisää malli",
     "add-card": "Lisää kortti",
     "add-card-to-top-of-list": "Lisää kortti listan alkuun",
     "add-card-to-bottom-of-list": "Lisää kortti listan loppuun",
@@ -88,6 +89,7 @@
     "add-subtask": "Lisää alitehtävä",
     "add-checklist": "Lisää tarkistuslista",
     "add-checklist-item": "Lisää kohta tarkistuslistaan",
+    "convertChecklistItemToCardPopup-title": "Muuta kortiksi",
     "add-cover": "Lisää kansi",
     "add-label": "Lisää nimilappu",
     "add-list": "Lisää lista",
@@ -119,6 +121,8 @@
     "archives": "Arkisto",
     "template": "Malli",
     "templates": "Mallit",
+    "template-container": "Mallikontti",
+    "add-template-container": "Lisää mallikontti",
     "assign-member": "Valitse jäsen",
     "attached": "liitetty",
     "attachment": "Liitetiedosto",
@@ -318,6 +322,7 @@
     "editCardStartDatePopup-title": "Muokkaa aloituspäivää",
     "editCardDueDatePopup-title": "Muokkaa eräpäivää",
     "editCustomFieldPopup-title": "Muokkaa kenttää",
+    "addReactionPopup-title": "Lisää reaktio",
     "editCardSpentTimePopup-title": "Muuta käytettyä aikaa",
     "editLabelPopup-title": "Muokkaa nimilappua",
     "editNotificationPopup-title": "Muokkaa ilmoituksia",
@@ -1053,5 +1058,7 @@
     "Scaleout": "Skaalaus ulos odotus pyörijä",
     "Wave": "Aalto odotus pyörijä",
     "maximize-card": "Suurenna kortti",
-    "minimize-card": "Pienennä kortti"
+    "minimize-card": "Pienennä kortti",
+    "delete-org-warning-message": "Ei voi poistaa tätä organisaatiota, ainakin yksi käyttäjä kuuluu siihen",
+    "delete-team-warning-message": "Ei voi poistaa tätä tiimiä, ainakin yksi käyttäjä kuuluu siihen"
 }

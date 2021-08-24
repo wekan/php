@@ -81,6 +81,7 @@
     "activity-endDate": "edited end date to %s of %s",
     "add-attachment": "Pievienot failu",
     "add-board": "Pievienot dēli",
+    "add-template": "Add Template",
     "add-card": "Pievienot kartiņu",
     "add-card-to-top-of-list": "Add Card to Top of List",
     "add-card-to-bottom-of-list": "Add Card to Bottom of List",
@@ -88,6 +89,7 @@
     "add-subtask": "Pievienot apakšuzdevumu",
     "add-checklist": "Pievienot kontrolsarakstu",
     "add-checklist-item": "Pievienot elementu",
+    "convertChecklistItemToCardPopup-title": "Convert to Card",
     "add-cover": "Pievienot vāku",
     "add-label": "Pievienot birku",
     "add-list": "Pievienot sarakstu",
@@ -119,6 +121,8 @@
     "archives": "Arhīvs",
     "template": "Sagatave",
     "templates": "Sagataves",
+    "template-container": "Template Container",
+    "add-template-container": "Add Template Container",
     "assign-member": "Iecelt dalībnieku",
     "attached": "pievienots fails",
     "attachment": "Fails",
@@ -318,6 +322,7 @@
     "editCardStartDatePopup-title": "Mainīt sākuma datumu",
     "editCardDueDatePopup-title": "Mainīt termiņu",
     "editCustomFieldPopup-title": "Labot lauku",
+    "addReactionPopup-title": "Add reaction",
     "editCardSpentTimePopup-title": "Mainīt patērēto laiku",
     "editLabelPopup-title": "Mainīt birku",
     "editNotificationPopup-title": "Labot ziņojumu",
@@ -1053,5 +1058,7 @@
     "Scaleout": "Scaleout Wait Spinner",
     "Wave": "Wave Wait Spinner",
     "maximize-card": "Maximize Card",
-    "minimize-card": "Minimize Card"
+    "minimize-card": "Minimize Card",
+    "delete-org-warning-message": "Can not delete this organization, there is at least one user that belongs to it",
+    "delete-team-warning-message": "Can not delete this team, there is at least one user that belongs to it"
 }
