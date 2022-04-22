@@ -53,6 +53,8 @@
 echo "&nbsp; / &nbsp;";
 echo $page;
 
+//echo "&nbsp; SubUrl: ";
+//echo $subUrl;
 
 ?>
 

@@ -23,7 +23,7 @@
   <section class="auth-dialog">
     <div class="at-form">
         <h3>
-          <a class="button-link" href="/sign-in">Login</a><br /><br />
+          <a class="button-link" href="/sign-in">Sign In</a><br /><br />
           <a class="button-link" href="/allboards">All Boards</a><br /><br />
           <a class="button-link" href="/board">Board</a><br /><br />
           <a class="button-link" href="/newticket">New Ticket</a><br /><br />

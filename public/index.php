@@ -35,9 +35,9 @@ $page = substr($_SERVER['REQUEST_URI'], 1);
 $page = str_replace("index.php/", "", $page);
 
 
-if (isset($_SESSION["user"])) {
-  $page = 'sign-in';
-}
+//if (!isset($_SESSION["user"])) {
+//  $page = 'sign-in';
+//}
 
 include_once('../src/page/debug.php');
 include_once('../src/page/header.php');
@@ -66,6 +66,8 @@ if ($page == "sign-in") {
   include_once("../src/page/newticket.php");
 } else if ($page == "mongo") {
   include_once("../src/page/mongo.php");
+} else {
+  include_once('../src/page/sign-in.php');
 }
 ?>
 
