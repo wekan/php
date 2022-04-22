@@ -22,6 +22,10 @@ if (isset($_POST['at-field-username_and_email']) && isset($_POST['at-field-passw
     */
 }
 
+include_once('../src/settings.php');
+include_once('../src/lang.php');
+
+
 if (isset($_GET['page'])) {
   $page = htmlspecialchars($_GET['page']);
 }
@@ -31,18 +35,18 @@ if (isset($_SESSION["user"])) {
 }
 
 
-include_once('src/page/debug.php');
+include_once('../src/page/debug.php');
 
-include_once('src/page/header.php');
+include_once('../src/page/header.php');
 
 if (((!isset($_GET['page'])) || ($page == "login")) && (!isset($_SESSION["user"])) ) {
-  include_once('src/page/login.php');
+  include_once('../src/page/login.php');
 } else if ($page == "signup") {
 } else if ($page == "forgotpassword") {
 } else if (((!isset($_GET['page'])) || ($page == "allboards")) && (isset($_SESSION["user"])) ) {
-  include_once("src/page/allboards.php");
+  include_once("../src/page/allboards.php");
 } else if ($page == "board") {
-  include_once("src/page/board.php");
+  include_once("../src/page/board.php");
 } else if ($page == "boardsettings") {
 } else if ($page == "swimlane") {
 } else if ($page == "swimlanesettings") {
@@ -54,11 +58,11 @@ if (((!isset($_GET['page'])) || ($page == "login")) && (!isset($_SESSION["user"]
 } else if ($page == "gantt") {  
 } else if ($page == "adminpanel") {
 } else if ($page == "allpages") {
-  include_once("src/page/allpages.php");
+  include_once("../src/page/allpages.php");
 } else if ($page == "newticket") {
-  include_once("src/page/newticket.php");
+  include_once("../src/page/newticket.php");
 } else if ($page == "mongo") {
-  include_once("src/page/mongo.php");
+  include_once("../src/page/mongo.php");
 }
 ?>
 
