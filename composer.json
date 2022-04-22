@@ -1,0 +1,19 @@
+{
+    "name": "wekan/php",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Wekan\\Php\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lauri Ojansivu",
+            "email": "x@xet7.org"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.12"
+    }
+}

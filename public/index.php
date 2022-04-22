@@ -8,6 +8,8 @@
 
 // Change visible page based on $_PORT variable content.
 
+require '../vendor/autoload.php';
+
 session_start();
 
 if (isset($_POST['at-field-username_and_email']) && isset($_POST['at-field-password'])) {

@@ -2,7 +2,7 @@
 
 <?php
 
-require 'php/vendor/autoload.php';
+require '../vendor/autoload.php';
 
 
 
@@ -10,7 +10,7 @@ $client = new MongoDB\Client("mongodb://localhost:27019");
 $collection = $client->wekan->users;
 
 //$result = $collection->find( [ 'name' => 'Hinterland', 'brewery' => 'BrewDog' ] );
-$result = $collection->find()->toArray();
+$result = $collection->findOne()->toArray();
 
 print_r($result);
 
