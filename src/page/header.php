@@ -42,7 +42,21 @@
 
 <body style="font-family: <?php echo strip_tags($font); ?>; background-color: #<?php echo strip_tags($bgColor); ?>">
 
-<a href="?page=allpages" bgcolor="white">All Pages</a>
+<a href="/allpages" bgcolor="white">All Pages
+
+<?php 
+//echo f(substr($_SERVER['REQUEST_URI'], 0, 11) === "/project/b/") {
+
+//echo $_SERVER['REQUEST_URI'];
+//echo "&nbsp;";
+//echo substr($_SERVER['REQUEST_URI'], 1);
+echo "&nbsp; / &nbsp;";
+echo $page;
+
+
+?>
+
+</a>
 
 <br>
 

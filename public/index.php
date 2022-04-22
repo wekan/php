@@ -26,24 +26,27 @@ include_once('../src/settings.php');
 include_once('../src/lang.php');
 
 
-if (isset($_GET['page'])) {
-  $page = htmlspecialchars($_GET['page']);
-}
+//if (isset($_GET['page'])) {
+  //$page = htmlspecialchars($_GET['page']);
+//  $page = substr($_SERVER['REQUEST_URI'], 1);
+//}
+
+$page = substr($_SERVER['REQUEST_URI'], 1);
+$page = str_replace("index.php/", "", $page);
+
 
 if (isset($_SESSION["user"])) {
-  $page = 'allpages';
+  $page = 'sign-in';
 }
 
-
 include_once('../src/page/debug.php');
-
 include_once('../src/page/header.php');
 
-if (((!isset($_GET['page'])) || ($page == "login")) && (!isset($_SESSION["user"])) ) {
-  include_once('../src/page/login.php');
-} else if ($page == "signup") {
+if ($page == "sign-in") {
+  include_once('../src/page/sign-in.php');
+} else if ($page == "sign-up") {
 } else if ($page == "forgotpassword") {
-} else if (((!isset($_GET['page'])) || ($page == "allboards")) && (isset($_SESSION["user"])) ) {
+} else if ($page == "allboards") {
   include_once("../src/page/allboards.php");
 } else if ($page == "board") {
   include_once("../src/page/board.php");

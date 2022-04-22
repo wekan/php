@@ -23,11 +23,11 @@
   <section class="auth-dialog">
     <div class="at-form">
         <h3>
-          <a class="button-link" href="?page=login">Login</a><br /><br />
-          <a class="button-link" href="?page=allboards">All Boards</a><br /><br />
-          <a class="button-link" href="?page=board">Board</a><br /><br />
-          <a class="button-link" href="?page=newticket">New Ticket</a><br /><br />
-          <a class="button-link" href="?page=mongo">Mongo</a><br /><br />
+          <a class="button-link" href="/sign-in">Login</a><br /><br />
+          <a class="button-link" href="/allboards">All Boards</a><br /><br />
+          <a class="button-link" href="/board">Board</a><br /><br />
+          <a class="button-link" href="/newticket">New Ticket</a><br /><br />
+          <a class="button-link" href="/mongo">Mongo</a><br /><br />
         </h3>
     </div>
   </section>
