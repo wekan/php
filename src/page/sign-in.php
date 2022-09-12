@@ -137,7 +137,7 @@ if ($hideLogo != true) {
                     <br />
 
                     <div class="at-pwd-link">
-                    <p><a href="/forgot-password" id="at-forgotPwd" class="at-link at-pwd">Forgot password</a></p>
+                    <p><a href="/forgot-password" id="at-forgotPwd" class="at-link at-pwd"><?php echo htmlentities($translate["forgot-password"]); ?></a></p>
                     </div>
 
                 </td>
