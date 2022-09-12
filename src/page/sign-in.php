@@ -134,7 +134,6 @@ if ($hideLogo != true) {
                     <div class="at-signup-link">
                         <p><a href="/sign-up" id="at-signUp" class="at-link at-signup"><?php echo htmlentities($translate["registration"]); ?></a></p>
                     </div>
-                    <br />
 
                     <div class="at-pwd-link">
                     <p><a href="/forgot-password" id="at-forgotPwd" class="at-link at-pwd"><?php echo htmlentities($translate["forgot-password"]); ?></a></p>
