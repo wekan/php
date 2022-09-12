@@ -45,6 +45,7 @@
 <body style="font-family: <?php echo strip_tags($font); ?>;
 background-color: #<?php echo strip_tags($bgColor); ?>">
 
+<br>
 <a href="/allpages" bgcolor="white">All Pages</a>
 
 <?php 
