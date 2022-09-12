@@ -221,6 +221,9 @@ include_once('../settings.php');
     }
 }
 
+// Language list and RTL info, not used yet.
+$langlistjson = file_get_contents('languages.json');
+$langlisttranslate = json_decode($langlistjson, true);
 
 // User language
 $langjson = file_get_contents('i18n/' . $lang . '.i18n.json');
