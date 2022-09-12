@@ -33,8 +33,7 @@
           <a class="button-link" href="/board"><?php echo htmlentities($translate["board"]); ?></a><br /><br />
           <a class="button-link" href="/newticket"><?php echo htmlentities($translate["tickets"]); ?></a><br /><br />
           <a class="button-link" href="/mongo">Mongo</a><br /><br />
-          <a class="button-link" href="/onlyupload">onlyupload</a><br /><br />
-          <a class="button-link" href="/dragupload">dragupload</a><br /><br />
+          <a class="button-link" href="/dragupload">dragupload if JS, onlyupload if no JS</a><br /><br />
         </h3>
     </div>
   </section>

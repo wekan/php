@@ -1,19 +1,21 @@
-<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
-
-<link rel="stylesheet" href="style.css" />
-<div id="drop_file_zone" ondrop="upload_file(event)" ondragover="return false">
-    <div id="drag_upload_file">
-        <p>Drop file here</p>
-        <p>or</p>
-        <p><input type="button" value="Select File" onclick="file_explorer();" /></p>
-        <input type="file" id="selectfile" />
-    </div>
-</div>
-<div class="img-content"></div>
-
-</form>
 
 <script>
+// Write drag upload form for Javascript browsers
+document.write(`
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
+    <div id="drop_file_zone" ondrop="upload_file(event)" ondragover="return false">
+        <div id="drag_upload_file">
+            <p>Drop file here</p>
+            <p>or</p>
+            <p><input type="button" value="Select File" onclick="file_explorer();" /></p>
+            <input type="file" id="selectfile" />
+        </div>
+    </div>
+    <div class="img-content"></div>
+
+    </form>
+`);
+
 var fileobj;
 function upload_file(e) {
     e.preventDefault();
@@ -74,3 +76,11 @@ function ajax_file_upload(file_obj) {
     }
 }
 </script>
+
+<noscript>
+<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
+  Select image to upload:
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
+</noscript>

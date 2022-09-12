@@ -121,8 +121,6 @@ if ($page == "sign-in") {
   include_once("../src/page/newticket.php");
 } else if ($page == "mongo") {
   include_once("../src/page/mongo.php");
-} else if ($page == "onlyupload") {
-  include_once("../src/page/onlyupload.php");
 } else if ($page == "dragupload") {
   include_once("../src/page/dragupload.php");
 } else {
