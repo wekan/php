@@ -46,7 +46,7 @@ if ($hideLogo != true) {
   </div>
       
   <div class="at-pwd-form"><div class="at-form-authentication" style="display: none;">
-  <label>Authentication method</label>
+  <label><?php echo htmlentities($translate["authentication-method"]); ?></label>
   <br>
 
 <select class="select-authentication"><option value="password"><?php echo htmlentities($translate["password"]); ?></option></select></div>
@@ -90,21 +90,7 @@ if ($hideLogo != true) {
     </label>
     <br>
    <input id="at-field-invitationcode" type="text" name="at-field-invitationcode" placeholder="<?php echo htmlentities($translate["invitation-code"]); ?>">
-</div>
-<br>
-<button type="submit" class="at-btn submit" id="at-btn">
-  <?php echo htmlentities($translate["register"]); ?>
-  </button>
-    </form>
-  </div>
-  <br>
-        <div class="at-signin-link">
-    <p>
-    <?php echo htmlentities($translate["if-you-already-have-an-account"]); ?>
-      <a href="/sign-in" id="at-signIn" class="at-link at-signin">
-        <?php echo htmlentities($translate["sign-in"]); ?></a>
-    </p>
-
+   </div>
 
     <br />
                         <div class="at-select-lang">
@@ -179,6 +165,17 @@ if ($hideLogo != true) {
                         </div>
                         <input type="submit" name="register" class="at-btn submit" id="at-btn" value="<?php echo htmlentities($translate["register"]); ?>">
                     </form>
+
+                    <br>
+        <div class="at-signin-link">
+    <p>
+
+    <br>
+
+    <?php echo htmlentities($translate["if-you-already-have-an-account"]); ?>
+      <a href="/sign-in" id="at-signIn" class="at-link at-signin">
+        <?php echo htmlentities($translate["log-in"]); ?></a>
+    </p>
 
   </div>
     </div>
