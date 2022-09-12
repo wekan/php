@@ -161,9 +161,29 @@ include_once('../settings.php');
     }
 }
 
-$langjson = file_get_contents('i18n/' . $lang . '.i18n.json');
 
-$translate = json_decode($langjson, true);
+// User language
+$langjson = file_get_contents('i18n/' . $lang . '.i18n.json');
+$langtranslate = json_decode($langjson, true);
+
+// English language
+$enlangjson = file_get_contents('i18n/en.i18n.json');
+$enlangtranslate = json_decode($enlangjson, true);
+
+
+function translate($text) {
+  global $langjson, $langtranslate, $enlangjson, $enlangtranslate;
+  // If translation exists, return it
+  if ($langtranslate[$text]) {
+    echo $langtranslate[$text];
+  // If only English translation exists, return it
+  } else if (isset($enlangtranslate[$text])) {
+    echo $enlangtranslate[$text];
+  // If no translation exists, return translation string
+  } else {
+    echo $text;
+  }
+}
 
 /*
 =========== TRANSLATIONS END ===========
@@ -262,8 +282,11 @@ if ($debug) {
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html lang="en">
-
+<html <?php
+if ($lang="he" or $lang="ar") {
+  ?>dir="rtl"<?php
+}
+?> lang="<?php echo $lang; ?>">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><?php echo htmlentities($productName); ?></title>
@@ -300,6 +323,9 @@ if ($debug) {
         #drag_upload_file #selectfile {
             display: none;
         }
+        font-family: <?php echo strip_tags($font); ?>;
+        background-color: #<?php echo strip_tags($bgColor); ?>;
+
     </style>
 
 <?php
@@ -319,8 +345,7 @@ if ($debug) {
 ?>
 </head>
 
-<body style="font-family: <?php echo strip_tags($font); ?>;
-background-color: #<?php echo strip_tags($bgColor); ?>">
+<body>
 
 <?php
 
@@ -460,25 +485,30 @@ if ($page == "sign-in") {
   
           <table>
               <tr>
-                  <td align="left">
+                  <td>
                       <h1>
-                          <?php echo htmlentities($translate["log-in"]); ?>
+                          <?php translate("log-in"); ?>
                       </h1>
                       <form role="form" id="at-pwd-form" novalidate="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
   
                           <div class="at-form-authentication">
-                              <label for="select-authentication"><?php echo htmlentities($translate["authentication-method"]); ?></label>
+                              <label for="select-authentication"><?php translate("authentication-method"); ?></label>
                               <select class="select-authentication">
-                                  <option value="password"><?php echo htmlentities($translate["password"]); ?></option>
+                                  <option value="password"><?php translate("password"); ?></option>
                               </select>
                           </div>
                           <br />
                           <div class="at-input">
-                              <label for="at-field-username_and_email"><?php echo htmlentities($translate["username"]) . " " . htmlentities($translate["or"]) . " " .htmlentities($translate["email"]); ?></label><br />
+                              <label for="at-field-username_and_email"><?php translate("username");
+echo " ";
+translate("or");
+echo " ";
+translate("email");
+?></label><br />
                               <input type="text" id="at-field-username_and_email" name="at-field-username_and_email" placeholder="" autocapitalize="none" autocorrect="off">
                           </div>
                           <br />
-                          <div class="at-input"><label for="at-field-password"><?php echo htmlentities($translate["password"]); ?></label><br />
+                          <div class="at-input"><label for="at-field-password"><?php translate("password"); ?></label><br />
                               <input type="password" id="at-field-password" name="at-field-password" placeholder="" autocapitalize="none" autocorrect="off">
                           </div>
                           <br />
@@ -531,62 +561,62 @@ if ($hideLogo != true) {
 
         <table>
             <tr>
-                <td align="left">
+                <td>
                     <h1>
-                        <?php echo htmlentities($translate["sign-up"]); ?>
+                        <?php translate("sign-up"); ?>
                     </h1>
 
                     <section class="auth-dialog">
     <div class="at-form">
         <div class="at-title">
-    <h3><?php echo htmlentities($translate["signupPopup-title"]); ?></h3>
+    <h3><?php translate("signupPopup-title"); ?></h3>
   </div>
       
   <div class="at-pwd-form"><div class="at-form-authentication" style="display: none;">
-  <label><?php echo htmlentities($translate["authentication-method"]); ?></label>
+  <label><?php translate("authentication-method"); ?></label>
   <br>
 
-<select class="select-authentication"><option value="password"><?php echo htmlentities($translate["password"]); ?></option></select></div>
+<select class="select-authentication"><option value="password"><?php translate("password"); ?></option></select></div>
     <form role="form" id="at-pwd-form" novalidate="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
     <div class="at-input">
       <label for="at-field-username">
-        <?php echo htmlentities($translate["username"]); ?>
+        <?php translate("username"); ?>
       </label>
       <br>
-    <input type="text" id="at-field-username" name="at-field-username" placeholder="<?php echo htmlentities($translate["username"]); ?>" autocapitalize="none" autocorrect="off">
+    <input type="text" id="at-field-username" name="at-field-username" placeholder="<?php translate("username"); ?>" autocapitalize="none" autocorrect="off">
   </div>
   <br>
     <div class="at-input">
       <label for="at-field-email">
-        <?php echo htmlentities($translate["email"]); ?>
+        <?php translate("email"); ?>
       </label>
       <br>
-    <input type="text" id="at-field-email" name="at-field-email" placeholder="<?php echo htmlentities($translate["email"]); ?>" autocapitalize="none" autocorrect="off">
+    <input type="text" id="at-field-email" name="at-field-email" placeholder="<?php translate("email"); ?>" autocapitalize="none" autocorrect="off">
   </div>
   <br>
     <div class="at-input">
       <label for="at-field-password">
-      <?php echo htmlentities($translate["password"]); ?>
+      <?php translate("password"); ?>
       </label>
       <br>
-    <input type="password" id="at-field-password" name="at-field-password" placeholder="<?php echo htmlentities($translate["password"]); ?>" autocapitalize="none" autocorrect="off">
+    <input type="password" id="at-field-password" name="at-field-password" placeholder="<?php translate("password"); ?>" autocapitalize="none" autocorrect="off">
   </div>
   <br>
     <div class="at-input">
       <label for="at-field-password_again">
-        <?php echo htmlentities($translate["password-again"]); ?>
+        <?php translate("password-again"); ?>
       </label>
       <br>
-    <input type="password" id="at-field-password_again" name="at-field-password_again" placeholder="<?php echo htmlentities($translate["password-again"]); ?>" autocapitalize="none" autocorrect="off">
+    <input type="password" id="at-field-password_again" name="at-field-password_again" placeholder="<?php translate("password-again"); ?>" autocapitalize="none" autocorrect="off">
   </div>
   <br>
     <div class="at-input" id="invitationcode" style="display: none;">
     <label for="at-field-code">
-        <?php echo htmlentities($translate["invitation-code"]); ?>
+        <?php translate("invitation-code"); ?>
     </label>
     <br>
-   <input id="at-field-invitationcode" type="text" name="at-field-invitationcode" placeholder="<?php echo htmlentities($translate["invitation-code"]); ?>">
+   <input id="at-field-invitationcode" type="text" name="at-field-invitationcode" placeholder="<?php translate("invitation-code"); ?>">
    </div>
 
     <br />
@@ -689,17 +719,17 @@ if ($hideLogo != true) {
 
 ?>
 
-                          <input type="submit" name="login" class="at-btn submit" id="at-btn" value="<?php echo htmlentities($translate["log-in"]); ?>">
+                          <input type="submit" name="login" class="at-btn submit" id="at-btn" value="<?php translate("log-in"); ?>">
                       </form>
   
                       <br />
   
                       <div class="at-signup-link">
-                          <p><a href="/sign-up" id="at-signUp" class="at-link at-signup"><?php echo htmlentities($translate["registration"]); ?></a></p>
+                          <p><a href="/sign-up" id="at-signUp" class="at-link at-signup"><?php translate("registration"); ?></a></p>
                       </div>
   
                       <div class="at-pwd-link">
-                      <p><a href="/forgot-password" id="at-forgotPwd" class="at-link at-pwd"><?php echo htmlentities($translate["forgot-password"]); ?></a></p>
+                      <p><a href="/forgot-password" id="at-forgotPwd" class="at-link at-pwd"><?php translate("forgot-password"); ?></a></p>
                       </div>
   
                   </td>
@@ -721,7 +751,7 @@ if ($hideLogo != true) {
 
 ?>
 
-                        <input type="submit" name="register" class="at-btn submit" id="at-btn" value="<?php echo htmlentities($translate["register"]); ?>">
+                        <input type="submit" name="register" class="at-btn submit" id="at-btn" value="<?php translate("register"); ?>">
                     </form>
 
                     <br>
@@ -730,13 +760,13 @@ if ($hideLogo != true) {
 
     <br>
 
-    <?php echo htmlentities($translate["if-you-already-have-an-account"]); ?>
+    <?php translate("if-you-already-have-an-account"); ?>
       <a href="/sign-in" id="at-signIn" class="at-link at-signin">
-        <?php echo htmlentities($translate["log-in"]); ?></a>
+        <?php translate("log-in"); ?></a>
     </p>
 
     <div class="at-pwd-link">
-      <p><a href="/forgot-password" id="at-forgotPwd" class="at-link at-pwd"><?php echo htmlentities($translate["forgot-password"]); ?></a></p>
+      <p><a href="/forgot-password" id="at-forgotPwd" class="at-link at-pwd"><?php translate("forgot-password"); ?></a></p>
     </div>
 
   </div>
@@ -775,7 +805,7 @@ if ($hideLogo != true) {
     <div class="navigation">
         <div style="float: left; text-align: left;">
             <img src="logo-header.png" alt="">
-            <span class="allBoards"><a href="/"><img src="img/home.png"><?php echo htmlentities($translate["all-boards"]); ?></a></span>
+            <span class="allBoards"><a href="/"><img src="img/home.png"><?php translate("all-boards"); ?></a></span>
             <span class="current empty">Star a board to add a shortcut in this bar.</span>
         </div>
         <div style="float: right; text-align: right;">
@@ -784,9 +814,9 @@ if ($hideLogo != true) {
         </div>
     </div>
     <div style="position:absolute; top: 50px;">
-            <h1><?php echo htmlentities($translate["my-boards"]); ?></h1>
+            <h1><?php translate("my-boards"); ?></h1>
 
- <div style="text-align: center; min-height: 100px; border: 1px solid black; padding: 2px; border-radius: 10px 10px 10px 10px;"><br /><br /><?php echo htmlentities($translate["add-board"]); ?></a></div>
+ <div style="text-align: center; min-height: 100px; border: 1px solid black; padding: 2px; border-radius: 10px 10px 10px 10px;"><br /><br /><?php translate("add-board"); ?></a></div>
 
  <div style="min-height: 100px; border: 1px solid black; padding: 2px; border-radius: 10px 10px 10px 10px;">hep hei<br>joojojoj jodsjfdo fjsodf fjdos<br>jijdijgsidji<br>okfodskfso</div>
 
@@ -1133,12 +1163,12 @@ task</font>
   <section class="auth-dialog">
     <div class="at-form">
         <h3>
-          <a class="button-link" href="/sign-in"><?php echo htmlentities($translate["log-in"]); ?></a><br /><br />
-          <a class="button-link" href="/sign-up"><?php echo htmlentities($translate["register"]); ?></a><br /><br />
-          <a class="button-link" href="/allboards"><?php echo htmlentities($translate["all-boards"]); ?></a><br /><br />
-          <a class="button-link" href="/myboards"><?php echo htmlentities($translate["my-boards"]); ?></a><br /><br />
-          <a class="button-link" href="/board"><?php echo htmlentities($translate["board"]); ?></a><br /><br />
-          <a class="button-link" href="/newticket"><?php echo htmlentities($translate["tickets"]); ?></a><br /><br />
+          <a class="button-link" href="/sign-in"><?php translate("log-in"); ?></a><br /><br />
+          <a class="button-link" href="/sign-up"><?php translate("register"); ?></a><br /><br />
+          <a class="button-link" href="/allboards"><?php translate("all-boards"); ?></a><br /><br />
+          <a class="button-link" href="/myboards"><?php translate("my-boards"); ?></a><br /><br />
+          <a class="button-link" href="/board"><?php translate("board"); ?></a><br /><br />
+          <a class="button-link" href="/newticket"><?php translate("tickets"); ?></a><br /><br />
           <a class="button-link" href="/mongo">Mongo</a><br /><br />
           <a class="button-link" href="/dragupload">dragupload if JS, onlyupload if no JS</a><br /><br />
         </h3>
@@ -1162,13 +1192,13 @@ task</font>
 
 ?>
 
-<h1><?php echo htmlentities($translate["help-request"]); ?></h1>
+<h1><?php translate("help-request"); ?></h1>
 
 <form role="form" id="at-pwd-form" novalidate="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
 <table border="0" padding="20" spacing="20">
   <tr>
-    <td valign="top"><?php echo htmlentities($translate["type"]); ?>
+    <td valign="top"><?php translate("type"); ?>
     </td>
     <td valign="top">
       <form>
@@ -1180,7 +1210,7 @@ task</font>
   </tr>
   <tr>
     <td valign="top">
-       <label for="subject"><?php echo htmlentities($translate["subject"]); ?></label>
+       <label for="subject"><?php translate("subject"); ?></label>
     </td>
     <td valign="top">
        <input type="text" id="subject" name="subject" placeholder="" autocapitalize="none" autocorrect="off">
@@ -1188,7 +1218,7 @@ task</font>
   </tr>
   <tr>
     <td valign="top">
-       <label for="details"><?php echo htmlentities($translate["details"]); ?></label>
+       <label for="details"><?php translate("details"); ?></label>
     </td>
     <td valign="top">
        <textarea id="details" name="details" rows="10" cols="50" placeholder="" autocapitalize="none" autocorrect="off">
@@ -1197,7 +1227,7 @@ task</font>
   </tr>
   <tr>
     <td valign="top">
-       <label for="carbon-copy"><?php echo htmlentities($translate["carbon-copy"]); ?></label>
+       <label for="carbon-copy"><?php translate("carbon-copy"); ?></label>
     </td>
     <td valign="top">
        <input type="text" id="carbon-copy" name="carbon-copy" placeholder="" autocapitalize="none" autocorrect="off">
@@ -1207,7 +1237,7 @@ task</font>
     <td valign="top">
       <br />
       <br />
-      <input type="submit" name="login" class="at-btn submit" id="at-btn" value="<?php echo htmlentities($translate["save"]); ?>">
+      <input type="submit" name="login" class="at-btn submit" id="at-btn" value="<?php translate("save"); ?>">
       </form>
     </td>
     <td valign="top">
