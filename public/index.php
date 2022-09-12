@@ -64,60 +64,111 @@ include_once('../settings.php');
          $langshort = substr($lang, 0, 2);
          // If it's same language in another country, keep those language names same
          switch ($lang) {
+           case "ar-DZ":
            case "ar-EG":
+           case "az-AZ":
+           case "az-LA":
+           case "cs-CZ":
+           case "cy-GB":
+           case "de-AT":
+           case "de-CH":
+           case "el-BR":
+           case "en-DE":
+           case "en-GB":
+           case "en-IT":
+           case "en-MY":
+           case "en-YS":
+           case "ast-ES":
+           case "es-AR":
+           case "es-CL":
+           case "es-LA":
+           case "es-MX":
+           case "es-PE":
+           case "es-PY":
+           case "et-EE":
+           case "fa-IR":
+           case "fr-BE":
+           case "fr-CA":
+           case "fr-CH":
+           case "fy-NL":
+           case "gl-ES":
+           case "gu-IN":
+           case "he-IL":
+           case "hi-IN":
+           case "ja-Hira":
+           case "ja-JP":
+           case "ko-KR":
+           case "ms-MY":
+           case "nl-NL":
+           case "pl-PL":
+           case "pt-BR":
+           case "ru-UA":
+           case "ua-UA":
+           case "uz-AR":
+           case "uz-LA":
+           case "uz-UZ":
+           case "ve-CC":
+           case "ve-PP":
+           case "vi-VN":
+           case "vl-SS":
+           case "wa-RR":
            case "zh-CN":
            case "zh-HK":
            case "zh-TW":
-           case "en-GB":
-           case "de-CH":
-           case "pt-BR":
-           case "es-AR":
-           case "es-LA":
-           case "es-CL":
-           case "es-MX":
-           case "es-PY":
-           case "es-PE":
+           case "zu-ZA":
              break;
            default:
              // Otherwise, it's same as short langage name.
              $lang = $langshort;
          }
+       } else if (strlen($lang) == 3) {
+         switch ($lang) {
+           case "ary":
+           case "zgh":
+             break;
+         }
        } else if (strlen($lang) == 2) {
          $lang = strtolower($lang);
          switch ($lang) {
            case "ar":
-           case "hy":
-           case "eu":
-           case "br":
+           case "az":
            case "bg":
+           case "br":
            case "ca":
-           case "hr":
            case "cs":
+           case "cy":
            case "da":
-           case "nl":
-           case "en":
-           case "eo":
-           case "fi":
-           case "fr":
-           case "gl":
-           case "ka":
            case "de":
            case "el":
+           case "en":
+           case "eo":
+           case "es":
+           case "eu":
+           case "fa":
+           case "fi":
+           case "fr":
+           case "fy":
+           case "gl":
            case "he":
-           case "hu":
            case "hi":
-           case "ig":
+           case "hr":
+           case "hu":
+           case "hy":
            case "id":
+           case "ig":
            case "it":
            case "ja":
+           case "ka":
            case "km":
            case "ko":
+           case "lt":
            case "lv":
            case "mk":
            case "mn":
+           case "ms":
            case "nb":
+           case "nl":
            case "oc":
-           case "fa":
            case "pa":
            case "pl":
            case "pt":
@@ -126,14 +177,23 @@ include_once('../settings.php');
            case "sr":
            case "sk":
            case "sl":
-           case "es":
+           case "st":
            case "sv":
            case "sw":
            case "ta":
            case "th":
            case "tr":
+           case "ua":
            case "uk":
+           case "ve":
            case "vi":
+           case "vo":
+           case "wa":
+           case "wo":
+           case "xh":
+           case "yi":
+           case "yo":
+           case "zu":
              break;
            default:
              $lang="en";
