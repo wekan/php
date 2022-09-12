@@ -174,10 +174,10 @@ $enlangtranslate = json_decode($enlangjson, true);
 function translate($text) {
   global $langjson, $langtranslate, $enlangjson, $enlangtranslate;
   // If translation exists, return it
-  if ($langtranslate[$text]) {
+  if ($langtranslate[$text] != "") {
     echo $langtranslate[$text];
   // If only English translation exists, return it
-  } else if (isset($enlangtranslate[$text])) {
+  } else if ($enlangtranslate[$text] != "") {
     echo $enlangtranslate[$text];
   // If no translation exists, return translation string
   } else {
@@ -522,7 +522,9 @@ translate("email");
 =========== SIGN-UP PART 1 START ===========
 */
 
-} else if ($page == "sign-up") {
+}
+
+if ($page == "sign-up") {
 
 ?>
 
@@ -563,7 +565,7 @@ if ($hideLogo != true) {
             <tr>
                 <td>
                     <h1>
-                        <?php translate("sign-up"); ?>
+                        <?php translate("register"); ?>
                     </h1>
 
                     <section class="auth-dialog">
@@ -630,7 +632,9 @@ if ($hideLogo != true) {
 =========== SELECT-LANG START ===========
 */
 
-} else if ($page == "sign-up" or $page == "sign-in") {
+}
+
+if ($page == "sign-up" or $page == "sign-in") {
   
 ?>
 
@@ -715,7 +719,9 @@ if ($hideLogo != true) {
 =========== SIGN-IN PART 2 START ===========
 */
 
-} else if ($page == "sign-in") {
+}
+
+if ($page == "sign-in") {
 
 ?>
 
@@ -747,7 +753,9 @@ if ($hideLogo != true) {
 =========== SIGN-UP PART 2 START ===========
 */
 
-} else if ($page == "sign-up") {
+}
+
+if ($page == "sign-up") {
 
 ?>
 
@@ -788,7 +796,9 @@ if ($hideLogo != true) {
 =========== FORGOT PASSWORD START ===========
 */
 
-} else if ($page == "forgotpassword") {
+}
+
+if ($page == "forgotpassword") {
 
 /*
 =========== FORGOT PASSWORD END ===========
@@ -798,7 +808,9 @@ if ($hideLogo != true) {
 =========== ALL BOARDS START ===========
 */
 
-} else if ($page == "allboards") {
+}
+
+if ($page == "allboards") {
 
 ?>
 
@@ -877,7 +889,9 @@ draggable="true" ondragstart="drag(event)"/>
 =========== BOARD START ===========
 */
 
-} else if ($page == "board") {
+}
+
+if ($page == "board") {
 
 ?>
 
@@ -1124,22 +1138,44 @@ task</font>
 =========== BOARD END ===========
 */
 
-} else if ($page == "boardsettings") {
-} else if ($page == "swimlane") {
-} else if ($page == "swimlanesettings") {
-} else if ($page == "card") {
-} else if ($page == "cardsettings") {
-} else if ($page == "searchallboards") {
-} else if ($page == "mycards") {
-} else if ($page == "calendar") {
-} else if ($page == "gantt") {  
-} else if ($page == "adminpanel") {
+}
+
+if ($page == "boardsettings") {
+}
+
+if ($page == "swimlane") {
+}
+
+if ($page == "swimlanesettings") {
+}
+
+if ($page == "card") {
+}
+
+if ($page == "cardsettings") {
+}
+
+if ($page == "searchallboards") {
+}
+
+if ($page == "mycards") {
+}
+
+if ($page == "calendar") {
+}
+
+if ($page == "gantt") {  
+}
+
+if ($page == "adminpanel") {
 
 /*
 =========== ALL PAGES START ===========
 */
 
-} else if ($page == "allpages") {
+}
+
+if ($page == "allpages") {
 
 ?>
   <center>
@@ -1188,7 +1224,9 @@ task</font>
 =========== NEW TICKET START ===========
 */
 
-} else if ($page == "newticket") {
+}
+
+if ($page == "newticket") {
 
 ?>
 
@@ -1255,7 +1293,9 @@ task</font>
 =========== MONGO START ===========
 */
 
-} else if ($page == "mongo") {
+}
+
+if ($page == "mongo") {
 
 ?>
 
@@ -1294,7 +1334,9 @@ print_r($result);
 =========== DRAGUPLOAD START ===========
 */
 
-} else if ($page == "dragupload") {
+}
+
+if ($page == "dragupload") {
 
 ?>
 
