@@ -7,9 +7,9 @@ if ($debug) {
   ini_set('error_reporting', E_ALL);
 }
 
-include_once('src/settings.php');
+include_once('../src/settings.php');
 
-include_once('src/lang.php');
+include_once('../src/lang.php');
 
 if ($debug) {
 

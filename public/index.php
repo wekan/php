@@ -8,7 +8,7 @@
 
 // Change visible page based on $_PORT variable content.
 
-require '../vendor/autoload.php';
+//require '../vendor/autoload.php';
 
 session_start();
 
@@ -47,6 +47,7 @@ include_once('../src/page/header.php');
 if ($page == "sign-in") {
   include_once('../src/page/sign-in.php');
 } else if ($page == "sign-up") {
+  include_once('../src/page/sign-up.php');
 } else if ($page == "forgotpassword") {
 } else if ($page == "allboards") {
   include_once("../src/page/allboards.php");
