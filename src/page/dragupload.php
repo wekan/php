@@ -1,34 +1,4 @@
-
-<!DOCTYPE html>
-<html>
-<title>Drag Upload</title>
-
-<!-- Source: https://artisansweb.net/drag-drop-file-upload-using-javascript-php/ -->
-
-<style type="text/css">
-#drop_file_zone {
-    background-color: #EEE;
-    border: #999 5px dashed;
-    width: 290px;
-    height: 200px;
-    padding: 8px;
-    font-size: 18px;
-}
-#drag_upload_file {
-  width:50%;
-  margin:0 auto;
-}
-#drag_upload_file p {
-  text-align: center;
-}
-#drag_upload_file #selectfile {
-  display: none;
-}
-</style>
-
-<body>
-
-<form action="ajax.php" method="post" enctype="multipart/form-data">
+<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
 
 <link rel="stylesheet" href="style.css" />
 <div id="drop_file_zone" ondrop="upload_file(event)" ondragover="return false">
@@ -89,7 +59,7 @@ function ajax_file_upload(file_obj) {
         var form_data = new FormData();                  
         form_data.append('file', file_obj);
         var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "ajax.php", true);
+        xhttp.open("POST", "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>", true);
         xhttp.onload = function(event) {
             oOutput = document.querySelector('.img-content');
             if (xhttp.status == 200) {
@@ -104,6 +74,3 @@ function ajax_file_upload(file_obj) {
     }
 }
 </script>
-
-</body>
-</html>

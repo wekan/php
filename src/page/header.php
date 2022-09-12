@@ -25,6 +25,27 @@
     <meta name="msapplication-TileColor" content="#<?php echo strip_tags($msapplicationTileColor); ?>">
     <meta name="theme-color" content="#<?php echo strip_tags($themeColor); ?>">
 
+    <style type="text/css">
+        #drop_file_zone {
+            background-color: #EEE;
+            border: #999 5px dashed;
+            width: 290px;
+            height: 200px;
+            padding: 8px;
+            font-size: 18px;
+        }
+        #drag_upload_file {
+            width:50%;
+            margin:0 auto;
+        }
+        #drag_upload_file p {
+            text-align: center;
+        }
+        #drag_upload_file #selectfile {
+            display: none;
+        }
+    </style>
+
 <?php
 /*
 
@@ -61,6 +82,7 @@ echo $page;
 //echo $subUrl;
 
 ?>
+<br>
 
 </a>
 
