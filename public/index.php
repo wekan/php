@@ -128,7 +128,7 @@ include_once('../settings.php');
              break;
          }
        } else if (strlen($lang) == 2) {
-         $lang = strtolower($lang);
+         $lang = strtolower($lang);         
          switch ($lang) {
            case "ar":
            case "az":
@@ -221,9 +221,25 @@ include_once('../settings.php');
     }
 }
 
-// Language list and RTL info, not used yet.
-$langlistjson = file_get_contents('languages.json');
-$langlisttranslate = json_decode($langlistjson, true);
+/*
+=========== RTL START ===========
+*/
+
+$rtllist = array("ar-DZ", "ar-EG", "ar", "ary", "az-AZ", "az-LA", "az", "fa", "he-IL", "he");
+
+if (in_array($lang, $rtllist)) {
+  $rtl = true;
+} else {
+  $rtl = false;
+}
+
+/*
+=========== RTL END ===========
+*/
+
+// Language list and RTL info, not used yet. Instead, above RTL code in use.
+//$langlistjson = file_get_contents('languages.json');
+//$langlisttranslate = json_decode($langlistjson, true);
 
 // User language
 $langjson = file_get_contents('i18n/' . $lang . '.i18n.json');
@@ -346,7 +362,7 @@ if ($debug) {
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html <?php
-if ($lang="he" or $lang="ar") {
+if ($rtl) {
   ?>dir="rtl"<?php
 }
 ?> lang="<?php echo $lang; ?>">
