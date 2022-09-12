@@ -12,7 +12,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title><?php echo htmlentities($productName); ?></title>
     <meta name="robots" content="noindex,nofollow">
-    <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=0">
+    <meta name="viewport" content="maximum-scale=1.0,width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo urlencode($shortcutIcon); ?>">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo urlencode($appleTouchIcon180x180); ?>">
@@ -24,11 +24,13 @@
     <meta name="application-name" content="<?php echo htmlentities($productName); ?>">
     <meta name="msapplication-TileColor" content="#<?php echo strip_tags($msapplicationTileColor); ?>">
     <meta name="theme-color" content="#<?php echo strip_tags($themeColor); ?>">
-    <link rel="stylesheet" type="text/css" href="css/minimal.css">
 
 <?php
-
 /*
+
+<link rel="stylesheet" type="text/css" href="css/minimal.css">
+
+
     <noscript>
     <link rel="stylesheet" type="text/css" href="css/minimal.css">
     </noscript>
@@ -40,9 +42,10 @@
 ?>
 </head>
 
-<body style="font-family: <?php echo strip_tags($font); ?>; background-color: #<?php echo strip_tags($bgColor); ?>">
+<body style="font-family: <?php echo strip_tags($font); ?>;
+background-color: #<?php echo strip_tags($bgColor); ?>">
 
-<a href="/allpages" bgcolor="white">All Pages
+<a href="/allpages" bgcolor="white">All Pages</a>
 
 <?php 
 //echo f(substr($_SERVER['REQUEST_URI'], 0, 11) === "/project/b/") {

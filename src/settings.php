@@ -38,7 +38,6 @@ echo '</body></html>';
 die();
 */
 
-
 $subUrl = "wekan";
 
 // Settings: HTML head icons.
@@ -55,7 +54,7 @@ $themeColor = "ffffff";
 // Admin Panel / Settings / Layout
 $productName = "Wekan";
 $font = "Arial, Helvetica, sans-serif"; // Wekan font
-$bgColor = "dfdfdf"; // Wekan background color
+$bgColor = "fff"; // Wekan background color
 $displayAuthenticationMethod = true;
 $authenticationMethod = "password"; // password, LDAP, OAuth2
 $hideLogo = false;
