@@ -225,7 +225,7 @@ include_once('../settings.php');
 =========== RTL START ===========
 */
 
-$rtllist = array("ar-DZ", "ar-EG", "ar", "ary", "az-AZ", "az-LA", "az", "fa", "he-IL", "he");
+$rtllist = array("ar-DZ", "ar-EG", "ar", "ary", "fa", "he-IL", "he");
 
 if (in_array($lang, $rtllist)) {
   $rtl = true;
