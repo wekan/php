@@ -15,7 +15,7 @@ REPODIR=/home/$USER/repos/w
 
 # 3) Install deps
 sudo apt-get -y install composer libcurl4-openssl-dev pkg-config libssl-dev \
-libapache2-mod-php8.1 php8.1-mbstring php8.1-dev libgd3 php-pear
+libapache2-mod-php8.1 php8.1-mbstring php8.1-dev php8.1-sqlite3 libgd3 php-pear
 sudo pecl channel-update pecl.php.net
 sudo pecl install mongodb
 sudo echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
