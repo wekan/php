@@ -38,7 +38,9 @@ echo '</body></html>';
 die();
 */
 
+$debug = false;
 $subUrl = "wekan";
+$pagepath = "../page/";
 
 // Settings: HTML head icons.
 $shortcutIcon = "favicon.ico";
