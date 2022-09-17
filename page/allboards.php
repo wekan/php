@@ -6,9 +6,7 @@
 
 if ($page == "allboards") {
 
-//$limit = 20;
-//$type = "board";
-
+// Open SQLite database
 $db = new SQLite3('../../../../wekan.sqlite');
 
 ?>
@@ -118,6 +116,9 @@ while ($row = $results->fetchArray()) {
 */
 
 }
+
+// Close SQLite database
+$db->close();
 
 ?>
 

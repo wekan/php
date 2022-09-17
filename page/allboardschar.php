@@ -6,6 +6,7 @@
 
 if ($page == "allboardschar") {
 
+// Open SQLite database
 $db = new SQLite3('../../../../wekan.sqlite');
 
 ?>
@@ -44,13 +45,14 @@ while ($row = $results->fetchArray()) {
     // board ID:
     echo "\n";
     echo ', <a href="?boardid=' . $row[0] . '">';
-    // board title:
+    // board title first char
     if (isset($row[1])) {
       echo $row[1];
     } else {
       echo "(Empty title)";
     }
     echo "</a>";
+    // count of title first char:
     if (isset($row[2])) {
       echo " (" . $row[2] . ")";
     }
@@ -72,13 +74,14 @@ while ($row = $results->fetchArray()) {
     // board ID:
     echo "\n";
     echo ', <a href="?boardid=' . $row[0] . '">';
-    // board title:
+    // board title first char
     if (isset($row[1])) {
       echo $row[1];
     } else {
       echo "(Empty title)";
     }
     echo "</a>";
+    // count of title first char:
     if (isset($row[2])) {
       echo " (" . $row[2] . ")";
     }
@@ -100,17 +103,21 @@ while ($row = $results->fetchArray()) {
     // board ID:
     echo "\n";
     echo ', <a href="?boardid=' . $row[0] . '">';
-    // board title:
+    // board title first char
     if (isset($row[1])) {
       echo $row[1];
     } else {
       echo "(Empty title)";
     }
     echo "</a>";
+    // count of title first char:
     if (isset($row[2])) {
       echo " (" . $row[2] . ")";
     }
 }
+
+// Close SQLite database
+$db->close();
 
 ?>
 

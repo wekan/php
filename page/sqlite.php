@@ -14,4 +14,6 @@ while ($row = $results->fetchArray()) {
     echo "<br><br>Someone {$row[0]}";
 }
 
+$db->close();
+
 ?>
