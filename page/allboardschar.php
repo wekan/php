@@ -1,7 +1,7 @@
 <?php
 
 /*
-=========== ALL BOARDS START ===========
+=========== ALL BOARDS CHAR START ===========
 */
 
 if ($page == "allboards") {
@@ -139,7 +139,7 @@ while ($row = $results->fetchArray()) {
 }
 
 /*
-=========== ALL BOARDS END ===========
+=========== ALL BOARDS CHAR END ===========
 */
 
 ?>

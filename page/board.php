@@ -6,6 +6,24 @@
 
 if ($page == "board") {
 
+
+$limit = 1;
+
+$db = new SQLite3('../../../../wekan.sqlite');
+$statement = $db->prepare('SELECT username from users LIMIT :limit;');
+//$statement->bindValue(':id', $id);
+$statement->bindValue(':limit', $limit);
+
+$results = $statement->execute();
+
+while ($row = $results->fetchArray()) {
+    var_dump($row);
+    echo "<br><br>Someone {$row[0]}";
+}
+
+
+
+
 ?>
 
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="8">

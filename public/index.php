@@ -34,6 +34,7 @@ if ($page == "sign-in")          { include_once($pagepath . "sign-in2.php"); }
 if ($page == "sign-up")          { include_once($pagepath . "sign-up2.php"); }
 if ($page == "forgot-password")  { include_once($pagepath . "forgot-password.php");}
 if ($page == "allboards")        { include_once($pagepath . "allboards.php"); }
+if ($page == "allboardschar")    { include_once($pagepath . "allboardschar.php"); }
 if ($page == "board")            { include_once($pagepath . "board.php"); }
 if ($page == "boardsettings")    {}
 if ($page == "swimlane")         {}

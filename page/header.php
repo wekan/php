@@ -46,6 +46,12 @@ if ($rtl) {
         #drag_upload_file #selectfile {
             display: none;
         }
+        #oneboard {
+          min-height: 100px;
+          border: 1px solid black;
+          padding: 2px;
+          border-radius: 10px 10px 10px 10px;
+        }
         font-family: <?php echo strip_tags($font); ?>;
         background-color: #<?php echo strip_tags($bgColor); ?>;
 

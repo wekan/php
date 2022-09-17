@@ -32,6 +32,7 @@ if ($page == "allpages") {
           <a class="button-link" href="/sign-in"><?php translate("log-in"); ?></a><br /><br />
           <a class="button-link" href="/sign-up"><?php translate("register"); ?></a><br /><br />
           <a class="button-link" href="/allboards"><?php translate("all-boards"); ?></a><br /><br />
+          <a class="button-link" href="/allboardschar"><?php translate("all-boards"); ?> Char</a><br /><br />
           <a class="button-link" href="/myboards"><?php translate("my-boards"); ?></a><br /><br />
           <a class="button-link" href="/board"><?php translate("board"); ?></a><br /><br />
           <a class="button-link" href="/newticket"><?php translate("tickets"); ?></a><br /><br />
