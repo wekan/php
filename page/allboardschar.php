@@ -11,27 +11,16 @@ $db = new SQLite3('../../../../wekan.sqlite');
 
 ?>
 
-    <div class="navigation">
-        <div style="float: left; text-align: left;">
-            <img src="logo-header.png" alt="">
-            <span class="allBoards"><a href="/"><img src="img/home.png"><?php translate("all-boards"); ?></a></span>
-            <span class="current empty"><?php translate("quick-access-description"); ?></span>
-        </div>
-        <div style="float: right; text-align: right;">
-            <span><a class="notifications-drawer-toggle fa fa-bell" href="#"><?php translate("notifications"); ?></a></span>
-            <span><?php
+<?php translate("all-boards"); ?></a> | <?php translate("quick-access-description"); ?>
+ | <?php translate("notifications"); ?>
+<?php
 if (isset($_SESSION["user"])) {
  echo $_SESSION["user"];
 }
 
-?></span>
-        </div>
-    </div>
+?>
 
-<div style="position:absolute; top: 50px;">
-    <h1><?php translate("my-boards"); ?></h1>
-
-<h2><?php translate("boards"); ?></h2>
+<h3><?php translate("boards"); ?></h3>
 
 <a href="addboard"><?php translate("add-board"); ?></a>
 <?php
@@ -60,7 +49,7 @@ while ($row = $results->fetchArray()) {
 
 ?>
 
-<h2>Template Boards</h2>
+<h3>Template Boards</h3>
 
 <a href="addboard"><?php translate("add-board"); ?></a>
 <?php
@@ -89,7 +78,7 @@ while ($row = $results->fetchArray()) {
 
 ?>
 
-<h2>Template Containers</h2>
+<h3>Template Containers</h3>
 
 <a href="addboard"><?php translate("add-board"); ?></a>
 <?php
@@ -124,8 +113,6 @@ $db->close();
 <br>
 <br>
 <br>
-
-</div>
 
 <?php
 
