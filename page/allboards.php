@@ -10,13 +10,6 @@ if ($page == "allboards") {
 //$type = "board";
 
 $db = new SQLite3('../../../../wekan.sqlite');
-$statement = $db->prepare('SELECT _id, title, type from boards ORDER BY type, title ASC;');
-
-//$statement->bindValue(':id', $id);
-//$statement->bindValue(':limit', $limit);
-//$statement->bindValue(':type', $type);
-
-$results = $statement->execute();
 
 ?>
 

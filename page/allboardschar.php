@@ -4,19 +4,9 @@
 =========== ALL BOARDS CHAR START ===========
 */
 
-if ($page == "allboards") {
-
-//$limit = 20;
-//$type = "board";
+if ($page == "allboardschar") {
 
 $db = new SQLite3('../../../../wekan.sqlite');
-$statement = $db->prepare('SELECT _id, title, type from boards ORDER BY type, title ASC;');
-
-//$statement->bindValue(':id', $id);
-//$statement->bindValue(':limit', $limit);
-//$statement->bindValue(':type', $type);
-
-$results = $statement->execute();
 
 ?>
 
@@ -45,9 +35,10 @@ if (isset($_SESSION["user"])) {
 <a href="addboard"><?php translate("add-board"); ?></a>
 <?php
 $type = "board";
-$statement = $db->prepare('SELECT _id, title, type from boards WHERE type=:type ORDER BY title ASC;');
+$statement = $db->prepare('SELECT _id, substr(title,1,1), COUNT(*), type from boards WHERE type=:type GROUP BY substr(title,1,1) ORDER BY substr(title,1,1) ASC;');
 $statement->bindValue(':type', $type);
 $results = $statement->execute();
+
 while ($row = $results->fetchArray()) {
     //var_dump($row);
     // board ID:
@@ -60,11 +51,9 @@ while ($row = $results->fetchArray()) {
       echo "(Empty title)";
     }
     echo "</a>";
-/*
     if (isset($row[2])) {
       echo " (" . $row[2] . ")";
     }
-*/
 }
 
 ?>
@@ -74,9 +63,10 @@ while ($row = $results->fetchArray()) {
 <a href="addboard"><?php translate("add-board"); ?></a>
 <?php
 $type = "template-board";
-$statement = $db->prepare('SELECT _id, title, type from boards WHERE type=:type ORDER BY title ASC;');
+$statement = $db->prepare('SELECT _id, substr(title,1,1), COUNT(*), type from boards WHERE type=:type GROUP BY substr(title,1,1) ORDER BY substr(title,1,1) ASC;');
 $statement->bindValue(':type', $type);
 $results = $statement->execute();
+
 while ($row = $results->fetchArray()) {
     //var_dump($row);
     // board ID:
@@ -89,11 +79,9 @@ while ($row = $results->fetchArray()) {
       echo "(Empty title)";
     }
     echo "</a>";
-/*
     if (isset($row[2])) {
       echo " (" . $row[2] . ")";
     }
-*/
 }
 
 ?>
@@ -103,9 +91,10 @@ while ($row = $results->fetchArray()) {
 <a href="addboard"><?php translate("add-board"); ?></a>
 <?php
 $type = "template-container";
-$statement = $db->prepare('SELECT _id, title, type from boards WHERE type=:type ORDER BY title ASC;');
+$statement = $db->prepare('SELECT _id, substr(title,1,1), COUNT(*), type from boards WHERE type=:type GROUP BY substr(title,1,1) ORDER BY substr(title,1,1) ASC;');
 $statement->bindValue(':type', $type);
 $results = $statement->execute();
+
 while ($row = $results->fetchArray()) {
     //var_dump($row);
     // board ID:
@@ -118,12 +107,9 @@ while ($row = $results->fetchArray()) {
       echo "(Empty title)";
     }
     echo "</a>";
-/*
     if (isset($row[2])) {
       echo " (" . $row[2] . ")";
     }
-*/
-
 }
 
 ?>
