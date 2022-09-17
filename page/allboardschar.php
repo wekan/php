@@ -30,7 +30,7 @@ if (isset($_SESSION["user"])) {
 <div style="position:absolute; top: 50px;">
     <h1><?php translate("my-boards"); ?></h1>
 
-<h2>Boards</h2>
+<h2><?php translate("boards"); ?></h2>
 
 <a href="addboard"><?php translate("add-board"); ?></a>
 <?php
