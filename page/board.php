@@ -6,7 +6,7 @@
 
 if ($page == "board") {
 
-
+/*
 $limit = 1;
 
 $db = new SQLite3('../../../../wekan.sqlite');
@@ -20,7 +20,7 @@ while ($row = $results->fetchArray()) {
     var_dump($row);
     echo "<br><br>Someone {$row[0]}";
 }
-
+*/
 
 
 

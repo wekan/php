@@ -4,7 +4,7 @@
 =========== DRAGUPLOAD START ===========
 */
 
-if ($page == "dragupload") {
+//if ($page == "dragupload") {
 
 ?>
 

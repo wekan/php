@@ -10,8 +10,47 @@
 
 
 include_once("../settings.php");
-include_once($pagepath . "session.php");
-include_once($pagepath . "page.php");
+
+//include_once($pagepath . "session.php");
+/*
+=========== SESSION START ===========
+*/
+
+session_start();
+
+if (isset($_POST['at-field-username_and_email']) && isset($_POST['at-field-password'])) {
+    if ($_POST['at-field-username_and_email'] == 'test' && $_POST['at-field-password'] == 'test') {
+        $_SESSION["user"] = "test";
+    }
+    /*
+    else {
+        session_unset();
+        session_destroy();
+    }
+    */
+}
+
+/*
+=========== SESSION END ===========
+*/
+
+// include_once($pagepath . "page.php");
+/*
+=========== PAGE START ===========
+*/
+
+$page = substr($_SERVER['REQUEST_URI'], 1);
+$page = str_replace("index.php/", "", $page);
+
+// If page is not set, show sign-in
+if ($page == "") {
+  $page = "sign-in";
+}
+
+/*
+=========== PAGE END ===========
+*/
+
 include_once($pagepath . "debug.php");
 include_once($pagepath . "translations.php");
 include_once($pagepath . "header.php");
