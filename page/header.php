@@ -52,9 +52,10 @@ if ($rtl) {
           padding: 2px;
           border-radius: 10px 10px 10px 10px;
         }
-        font-family: <?php echo strip_tags($font); ?>;
-        background-color: #<?php echo strip_tags($bgColor); ?>;
-
+        body {
+          font-family: <?php echo strip_tags($font); ?>;
+          background-color: #<?php echo strip_tags($bgColor); ?>;
+        }
     </style>
 
 <?php
