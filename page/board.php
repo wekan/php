@@ -11,14 +11,17 @@ $boardstatement = $db->prepare('SELECT * FROM boards WHERE _id=:boardid;');
 $boardstatement->bindValue(':boardid', $boardid);
 $boardresults = $boardstatement->execute();
 
-$swimlanestatement = $db->prepare('SELECT * FROM swimlanes WHERE boardId=:boardid;');
+$swimlanestatement = $db->prepare('SELECT * FROM swimlanes WHERE boardId=:boardid AND archived="false" ORDER BY sort ASC;');
 $swimlanestatement->bindValue(':boardid', $boardid);
 $swimlaneresults = $swimlanestatement->execute();
 
+
+$liststatement = $db->prepare('SELECT * FROM lists WHERE boardId=:boardid AND archived="false" ORDER BY sort ASC;');
+$liststatement->bindValue(':boardid', $boardid);
+$listresults = $liststatement->execute();
+
 while ($boardrow = $boardresults->fetchArray()) {
     //var_dump($row);
-    //echo "{$row['title']}";
-
 ?>
 
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="8">
@@ -167,100 +170,9 @@ task</font>
       <td align="left" valign="top" bgcolor="white"><font color="black">Card 9</font>
       </td>
     </tr>
-    <tr align="center">
-      <td colspan="5" rowspan="1" align="cente" valign="top" bgcolor="orange"><font color="black">Swimlane
-2 with custom orange color</font><br>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="blue"><font color="white">List some</font>
-      </td>
-      <td align="left" valign="top" bgcolor="blue"><font color="white">Todo</font>
-      </td>
-      <td align="left" valign="top" bgcolor="blue"><font color="white">Doing</font>
-      </td>
-      <td align="left" valign="top" bgcolor="blue"><font color="white">Done</font>
-      </td>
-      <td align="left" valign="top" bgcolor="blue"><font color="white">
-<form action="board.html">
-<input type="submit" value="+Add List">
-</form>
-</font>
-</font>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 10</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 11</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 12</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 13</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 14</font>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 15</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 16</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 17</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 18</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 19</font>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 20</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 21</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 22</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 23</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 24</font>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 25</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 26</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 27</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 28</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 29</font>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 30</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 31</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 32</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 33</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 34</font>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 35</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 36</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 37</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 38</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 39</font>
-      </td>
-    </tr>
+<?php
+}
+?>
   </tbody>
 </table>
 
@@ -269,8 +181,6 @@ task</font>
 <br>
 
 <?php
-
-}
 
 }
 
