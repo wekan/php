@@ -69,6 +69,11 @@ if ($page == "sign-up") {
   include($pagepath . "select-lang.php");
 }
 
+if (isset($_GET["boardid"])) {
+  $page = "board";
+  $boardid = $_GET["boardid"];
+}
+
 if ($page == "sign-in")          { include_once($pagepath . "sign-in2.php"); }
 if ($page == "sign-up")          { include_once($pagepath . "sign-up2.php"); }
 if ($page == "forgot-password")  { include_once($pagepath . "forgot-password.php");}

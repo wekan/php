@@ -74,16 +74,11 @@ if ($rtl) {
 */
 ?>
 </head>
-
-<body>
-
-<?php
-
-// <body background="img/background.jpg">
-?>
+<body background="img/background.jpg">
 
 <br>
-<a href="/allpages" bgcolor="white">All Pages</a>
+<table width="100%">
+<tr><td bgcolor="white"><a href="/allpages">All Pages</a>
 
 <?php 
 //echo f(substr($_SERVER['REQUEST_URI'], 0, 11) === "/project/b/") {
@@ -94,10 +89,11 @@ if ($rtl) {
 echo "&nbsp; / &nbsp;";
 echo $page;
 
-//echo "&nbsp; SubUrl: ";
-//echo $subUrl;
-
 ?>
+
+</td></tr>
+</table>
+
 <br>
 
 </a>

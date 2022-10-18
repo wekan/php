@@ -33,6 +33,8 @@ if (isset($_SESSION["user"])) {
 
 <h2><?php translate("boards"); ?></h2>
 
+<table width="100%"><tr><td bgcolor="white">
+
 <a href="addboard"><?php translate("add-board"); ?></a>
 <?php
 $type = "board";
@@ -59,6 +61,8 @@ while ($row = $results->fetchArray()) {
 }
 
 ?>
+</td></tr></table>
+
 
 <h2>Template Boards</h2>
 

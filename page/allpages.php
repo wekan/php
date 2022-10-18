@@ -8,10 +8,11 @@
 if ($page == "allpages") {
 
 ?>
-  <center>
-  <h1></h1>
-<?php
 
+<table align="center" bgcolor="white">
+<tr><td style="padding: 15px;">
+
+<?php
     // Login logo image URL
     if (!empty($loginLogoImageUrl)) {
       echo '<img src="' . urlencode($loginLogoImageUrl) . '" alt="' .
@@ -21,13 +22,6 @@ if ($page == "allpages") {
     }
 
 ?>
-
-<br>
-<br>
-
-<section class="auth-layout">
-  <section class="auth-dialog">
-    <div class="at-form">
         <h3>
           <a class="button-link" href="/sign-in"><?php translate("log-in"); ?></a><br /><br />
           <a class="button-link" href="/sign-up"><?php translate("register"); ?></a><br /><br />
@@ -40,11 +34,10 @@ if ($page == "allpages") {
           <a class="button-link" href="/mongo">MongoDB 3.6 or newer</a><br /><br />
           <a class="button-link" href="/dragupload">dragupload if JS, onlyupload if no JS</a><br /><br />
         </h3>
-    </div>
-  </section>
-</section>
-
-  </center>
+</td>
+</tr>
+</table>
+</center>
 
 <?php
 

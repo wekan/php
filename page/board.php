@@ -4,25 +4,20 @@
 =========== BOARD START ===========
 */
 
-if ($page == "board") {
-
-/*
-$limit = 1;
+//$limit = 1;
 
 $db = new SQLite3('../../../../wekan.sqlite');
-$statement = $db->prepare('SELECT username from users LIMIT :limit;');
-//$statement->bindValue(':id', $id);
-$statement->bindValue(':limit', $limit);
+$boardstatement = $db->prepare('SELECT * FROM boards WHERE _id=:boardid;');
+$boardstatement->bindValue(':boardid', $boardid);
+$boardresults = $boardstatement->execute();
 
-$results = $statement->execute();
+$swimlanestatement = $db->prepare('SELECT * FROM swimlanes WHERE boardId=:boardid;');
+$swimlanestatement->bindValue(':boardid', $boardid);
+$swimlaneresults = $swimlanestatement->execute();
 
-while ($row = $results->fetchArray()) {
-    var_dump($row);
-    echo "<br><br>Someone {$row[0]}";
-}
-*/
-
-
+while ($boardrow = $boardresults->fetchArray()) {
+    //var_dump($row);
+    //echo "{$row['title']}";
 
 ?>
 
@@ -30,24 +25,33 @@ while ($row = $results->fetchArray()) {
 
   <tbody>
     <tr>
-      <td colspan="5" rowspan="1" valign="top" bgcolor="blue"><font color="white">Logo <a href="board.html">All
-Boards</a> Star a board to add a shortcut
-in this bar.&nbsp; +</font>
+      <td colspan="5" rowspan="1" valign="top" bgcolor="blue"><font color="white">
+<a href="board.html"><?php translate("all-boards"); ?></a> &nbsp; +</font>
       </td>
-      <td bgcolor="white"><br>
+<?php
+//  <td bgcolor="white"><br>
+?>
       </td>
     </tr>
     <tr>
-      <td colspan="5" rowspan="1" valign="top" bgcolor="white"><font color="black">Wekan -
-Open Source kanban board with MIT license * Public Muted Filter
-Rules
-Search Swimlanes Multi-Selection<br></font>
+      <td colspan="5" rowspan="1" valign="top" bgcolor="white"><font color="black">
+<?php echo "{$boardrow['title']}"; ?> <br>* <?php translate("public"); ?> <?php translate("muted"); ?> 
+<?php translate("filter"); ?> <?php translate("rules"); ?> <?php translate("search"); ?> 
+<?php translate("swimlanes"); ?> <?php translate("multi-selection"); ?>
+<br></font>
       </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Sidebar</font></td>
+<?php
+//  <td align="left" valign="top" bgcolor="white"><font color="black">Sidebar</font></td>
+?>
     </tr>
+<?php while ($swimlanerow = $swimlaneresults->fetchArray()) { ?>
+
     <tr>
-      <td colspan="5" rowspan="1" bgcolor="darkgreen" align="center"><font color="white">Swimlane 1 with green background color</font>
+      <td colspan="5" rowspan="1" bgcolor="darkgreen" align="center">
+      <font color="white"><?php echo "{$swimlanerow['title']}"; ?></font>
       </td>
+<?php
+/*
       <td colspan="1" rowspan="15" bgcolor="white" align="left" valign="top">
 <form action="board.html">
 <input type="submit" value="Board Settings">
@@ -80,6 +84,8 @@ xet7
 <br>
       <br>
       </td>
+*/
+?>
     </tr>
     <tr>
       <td align="left" valign="top" bgcolor="blue"><font color="white">List
@@ -265,6 +271,12 @@ task</font>
 <?php
 
 }
+
+}
+
+$db->close();
+
+//}
 
 /*
 =========== BOARD END ===========
