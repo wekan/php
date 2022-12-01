@@ -22,10 +22,10 @@ $listresults = $liststatement->execute();
 
 while ($boardrow = $boardresults->fetchArray()) {
     //var_dump($row);
+
 ?>
 
-<div id="holder">
-</div>
+<div id="holder"></div>
 
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="8">
 
