@@ -1,5 +1,5 @@
             window.onload = function () {
-                var r = Raphael("holder", 220, 320),
+                var r = Raphael("holder", 120, 120),
                     discattr = {fill: "aaa", stroke: "none"};
                 //r.rect(0, 0, 619, 419, 10).attr({stroke: "#666"});
                 //r.text(310, 20, "Drag the points to change the curves").attr({fill: "#fff", "font-size": 16});
@@ -67,7 +67,7 @@
                     this.dx = this.dy = 0;
                 }
     /* function curve( x, y,  ax, ay,  bx,  by,  zx,  zy, color) { */
-                curve(10, 10, 50, 50, 50, 50, 170, 200, "hsb(0, .75, .75)");
+                curve(10, 20, 30, 40, 50, 60, 70, 80, "hsb(0, .75, .75)");
 /*
                 curve(170, 100, 210, 100, 230, 200, 270, 200, "hsb(.8, .75, .75)");
                 curve(270, 100, 310, 100, 330, 200, 370, 200, "hsb(.3, .75, .75)");
