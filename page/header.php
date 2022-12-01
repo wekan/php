@@ -26,6 +26,16 @@ if ($rtl) {
     <meta name="application-name" content="<?php echo htmlentities($productName); ?>">
     <meta name="msapplication-TileColor" content="#<?php echo strip_tags($msapplicationTileColor); ?>">
     <meta name="theme-color" content="#<?php echo strip_tags($themeColor); ?>">
+<?php
+//if ($page == "board") {
+?>
+    <link rel="stylesheet" href="raphael/raphael.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="raphael/raphael-print.css" type="text/css" media="print">
+    <script src="raphael/raphael.js" type="text/javascript" charset="utf-8"></script>
+    <script src="raphael/raphael-curve.js" type="text/javascript" charset="utf-8"></script>
+<?php
+//}
+?>
 
     <style type="text/css">
         #drop_file_zone {
@@ -71,16 +81,18 @@ if ($rtl) {
 <script type="text/javascript" src="js/style.js">
     </script>
 
+<body background="img/background.jpg">
+
 */
 ?>
 </head>
-<body background="img/background.jpg">
+<body>
 
 <br>
 <table width="100%">
 <tr><td bgcolor="white"><a href="/allpages">All Pages</a>
 
-<?php 
+<?php
 //echo f(substr($_SERVER['REQUEST_URI'], 0, 11) === "/project/b/") {
 
 //echo $_SERVER['REQUEST_URI'];
