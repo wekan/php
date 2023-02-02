@@ -7,6 +7,7 @@
 //$limit = 1;
 
 $db = new SQLite3('../../../../wekan.sqlite');
+
 $boardstatement = $db->prepare('SELECT * FROM boards WHERE _id=:boardid;');
 $boardstatement->bindValue(':boardid', $boardid);
 $boardresults = $boardstatement->execute();
@@ -14,7 +15,6 @@ $boardresults = $boardstatement->execute();
 $swimlanestatement = $db->prepare('SELECT * FROM swimlanes WHERE boardId=:boardid AND archived="false" ORDER BY sort ASC;');
 $swimlanestatement->bindValue(':boardid', $boardid);
 $swimlaneresults = $swimlanestatement->execute();
-
 
 $liststatement = $db->prepare('SELECT * FROM lists WHERE boardId=:boardid AND archived="false" ORDER BY sort ASC;');
 $liststatement->bindValue(':boardid', $boardid);
@@ -41,8 +41,8 @@ while ($boardrow = $boardresults->fetchArray()) {
     </tr>
     <tr>
       <td colspan="5" rowspan="1" valign="top" bgcolor="white"><font color="black">
-<?php echo "{$boardrow['title']}"; ?> <br>* <?php translate("public"); ?> <?php translate("muted"); ?> 
-<?php translate("filter"); ?> <?php translate("rules"); ?> <?php translate("search"); ?> 
+<?php echo "{$boardrow['title']}"; ?> <br>* <?php translate("public"); ?> <?php translate("muted"); ?>
+<?php translate("filter"); ?> <?php translate("rules"); ?> <?php translate("search"); ?>
 <?php translate("swimlanes"); ?> <?php translate("multi-selection"); ?>
 <br></font>
       </td>

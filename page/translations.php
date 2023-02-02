@@ -210,10 +210,10 @@ $enlangtranslate = json_decode($enlangjson, true);
 function translate($text) {
   global $langjson, $langtranslate, $enlangjson, $enlangtranslate;
   // If translation exists, return it
-  if ($langtranslate[$text] != "") {
+  if (isset($langtranslate[$text])) {
     echo $langtranslate[$text];
   // If only English translation exists, return it
-  } else if ($enlangtranslate[$text] != "") {
+  } else if (isset($enlangtranslate[$text])) {
     echo $enlangtranslate[$text];
   // If no translation exists, return translation string
   } else {
