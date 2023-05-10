@@ -32,6 +32,7 @@ if ($page == "allpages") {
           <a class="button-link" href="/newticket"><?php translate("tickets"); ?></a><br /><br />
           <a class="button-link" href="/sqlite">SQLite</a><br /><br />
           <a class="button-link" href="/mongo">MongoDB 3.6 or newer</a><br /><br />
+          <a class="button-link" href="/mongoimage">MongoDB image</a><br /><br />
           <a class="button-link" href="/dragupload">dragupload if JS, onlyupload if no JS</a><br /><br />
         </h3>
 </td>

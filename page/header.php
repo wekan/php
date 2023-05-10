@@ -28,12 +28,11 @@ if ($rtl) {
     <meta name="theme-color" content="#<?php echo strip_tags($themeColor); ?>">
 <?php
 //if ($page == "board") {
-?>
-    <link rel="stylesheet" href="raphael/raphael.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="raphael/raphael-print.css" type="text/css" media="print">
-    <script src="raphael/raphael.js" type="text/javascript" charset="utf-8"></script>
-    <script src="raphael/raphael-curve.js" type="text/javascript" charset="utf-8"></script>
-<?php
+//
+//    <link rel="stylesheet" href="raphael/raphael.css" type="text/css" media="screen">
+//    <link rel="stylesheet" href="raphael/raphael-print.css" type="text/css" media="print">
+//    <script src="raphael/raphael.js" type="text/javascript" charset="utf-8"></script>
+//    <script src="raphael/raphael-curve.js" type="text/javascript" charset="utf-8"></script>
 //}
 ?>
 

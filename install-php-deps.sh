@@ -6,6 +6,7 @@
 # 1) Current user and repo to variable
 USER=$(whoami)
 REPODIR=/home/$USER/repos/w
+PHPVERSION=php8.1
 
 # 2) Clone repo, go to repo dir
 #mkdir -p $REPODIR
@@ -14,8 +15,15 @@ REPODIR=/home/$USER/repos/w
 #cd php
 
 # 3) Install deps
-sudo apt-get -y install composer libcurl4-openssl-dev pkg-config libssl-dev \
-libapache2-mod-php8.1 php8.1-mbstring php8.1-dev php8.1-sqlite3 libgd3 php-pear
+
+#sudo apt -y --purge remove *php8.1*
+
+#sudo add-apt-repository -y ppa:ondrej/php
+
+sudo apt update
+
+sudo apt -y install composer libcurl4-openssl-dev pkg-config libssl-dev \
+libapache2-mod-$PHPVERSION $PHPVERSION-mbstring $PHPVERSION-dev $PHPVERSION-sqlite3 libgd3 php-pear
 sudo pecl channel-update pecl.php.net
 sudo pecl install mongodb
 sudo echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`

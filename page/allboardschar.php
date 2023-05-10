@@ -24,10 +24,11 @@ if (isset($_SESSION["user"])) {
 
 <a href="addboard"><?php translate("add-board"); ?></a>
 <?php
-$type = "board";
-$statement = $db->prepare('SELECT _id, substr(title,1,1), COUNT(*), type from boards WHERE type=:type GROUP BY substr(title,1,1) ORDER BY substr(title,1,1) ASC;');
-$statement->bindValue(':type', $type);
-$results = $statement->execute();
+//$type = 'board';
+//$statement = $db->query("SELECT _id, substr(title,1,1), COUNT(*), type from boards WHERE type=board GROUP BY substr(title,1,1) ORDER BY substr(title,1,1) ASC;");
+//$statement->bindValue(":type", $type, SQLITE3_TEXT);
+//$results = $statement->execute();
+$results = $db->query("SELECT _id, substr(title,1,1), COUNT(*), type from boards WHERE type='board' GROUP BY substr(title,1,1) ORDER BY substr(title,1,1) ASC;");
 
 while ($row = $results->fetchArray()) {
     //var_dump($row);

@@ -94,6 +94,7 @@ if ($page == "allpages")         { include_once($pagepath . "allpages.php"); }
 if ($page == "newticket")        { include_once($pagepath . "newticket.php"); }
 if ($page == "sqlite")           { include_once($pagepath . "sqlite.php"); }
 if ($page == "mongo")            { include_once($pagepath . "mongo.php"); }
+if ($page == "mongoimage")       { include_once($pagepath . "mongoimage.php"); }
 if ($page == "dragupload")       { include_once($pagepath . "dragupload.php"); }
 ?>
 
