@@ -51,12 +51,12 @@ $manifest = "site.webmanifest";
 $maskIcon = "safari-pinned-tab.svg";
 $maskIconColor = "5bbad5";
 $msapplicationTileColor = "00aba9";
-$themeColor = "ffffff";
+$themeColor = "fff";
 
 // Admin Panel / Settings / Layout
 $productName = "WeKan ® Multiverse";
 $font = "Arial, Helvetica, sans-serif"; // Wekan font
-$bgColor = "fff"; // Wekan background color
+$bgColor = "dfdfdf"; // Wekan background color
 $displayAuthenticationMethod = true;
 $authenticationMethod = "password"; // password, LDAP, OAuth2
 $hideLogo = false;

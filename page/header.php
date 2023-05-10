@@ -64,6 +64,8 @@ if ($rtl) {
         body {
           font-family: <?php echo strip_tags($font); ?>;
           background-color: #<?php echo strip_tags($bgColor); ?>;
+          margin: 0;
+          padding: 0;
         }
     </style>
 

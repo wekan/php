@@ -40,20 +40,27 @@ if ($page == "sign-in") {
   // <table width="80%" border="0" margin="0" padding="0">
   ?>
 
-          <table>
+          <table border="0" padding="0" spacing="0" margin="0">
               <tr>
-                  <td>
-                      <h1>
+                  <td style="background-color: #f7f7f7;">
+                      <h3 style="font-size: 140%; padding-top: 10px; padding-left: 20px; padding-bottom: 0px;">
                           <?php translate("log-in"); ?>
-                      </h1>
-
+                      </h3>
+                  </td>
+              </tr>
+              <tr>
+                  <td style="padding-top: 20px; padding-left: 20px; padding-right: 20px; background-color: white;">
                       <form role="form" id="at-pwd-form" novalidate="" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
 
                           <div class="at-form-authentication">
                               <label for="select-authentication"><?php translate("authentication-method"); ?></label>
-                              <select class="select-authentication">
-                                  <option value="password"><?php translate("password"); ?></option>
-                              </select>
+                              <br />
+                              <input type="radio" id="auth-password" name="select-authentication" value="password" required>
+                              <label for="auth-password"><?php translate("password"); ?></label><br>
+                              <input type="radio" id="auth-oauth2" name="select-authentication" value="oauth2">
+                              <label for="auth-oauth2"><?php translate("oauth2"); ?></label><br>
+                              <input type="radio" id="auth-ldap" name="select-authentication" value="ldap">
+                              <label for="auth-ldap"><?php translate("ldap"); ?></label><br><br>
                           </div>
                           <br />
                           <div class="at-input">
@@ -63,11 +70,11 @@ translate("or");
 echo " ";
 translate("email");
 ?></label><br />
-                              <input type="text" id="at-field-username_and_email" name="at-field-username_and_email" placeholder="" autocapitalize="none" autocorrect="off">
+                              <input type="text" size="41" id="at-field-username_and_email" name="at-field-username_and_email" placeholder="" autocapitalize="none" autocorrect="off" required>
                           </div>
                           <br />
                           <div class="at-input"><label for="at-field-password"><?php translate("password"); ?></label><br />
-                              <input type="password" id="at-field-password" name="at-field-password" placeholder="" autocapitalize="none" autocorrect="off">
+                              <input type="password" size="41" id="at-field-password" name="at-field-password" placeholder="" autocapitalize="none" autocorrect="off" required>
                           </div>
                           <br />
 <?php
