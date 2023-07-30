@@ -6,7 +6,7 @@
 # 1) Current user and repo to variable
 USER=$(whoami)
 REPODIR=/home/$USER/repos/w
-PHPVERSION=php8.1
+PHPVERSION=php8.2
 
 # 2) Clone repo, go to repo dir
 #mkdir -p $REPODIR
@@ -28,6 +28,7 @@ sudo pecl channel-update pecl.php.net
 sudo pecl install mongodb
 sudo echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
 composer require mongodb/mongodb
+composer require ext-mongodb
 
 # 4) Optional:Add mongo to php.ini
 #   sudo echo "extension=mongodb.so" >> /etc/php/7.4/apache2/php.ini
