@@ -3,6 +3,9 @@
 # Installing Wekan-php. Not tested.
 # Please read steps below and make any changes required for your environment.
 
+# Fedora:
+#  sudo dnf install php
+
 # 1) Current user and repo to variable
 USER=$(whoami)
 REPODIR=/home/$USER/repos/w
