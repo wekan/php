@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "mongodb/mongodb": "^1.16",
+        "mongodb/mongodb": "^1.17",
         "ext-mongodb": "*"
     }
 }
