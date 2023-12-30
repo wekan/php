@@ -2,7 +2,10 @@
 /*
 =========== SELECT-LANG START ===========
 */
-echo "<p>Browser Language: " . $_SERVER[ 'HTTP_ACCEPT_LANGUAGE' ] . "</p>";
+
+if (array_key_exists('HTTP_ACCEPT_LANGUAGE', $_SERVER)) {
+  echo '<p>Browser Language: ' . $_SERVER[ 'HTTP_ACCEPT_LANGUAGE' ] . '<p>';
+};
 echo "<p>Detected Language: " . $lang . "</p>";
 
 ?>
