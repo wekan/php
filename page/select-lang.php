@@ -1,7 +1,10 @@
 <?php
 /*
 =========== SELECT-LANG START ===========
-*/ 
+*/
+echo "<p>Browser Language: " . $_SERVER[ 'HTTP_ACCEPT_LANGUAGE' ] . "</p>";
+echo "<p>Detected Language: " . $lang . "</p>";
+
 ?>
                           <div class="at-select-lang">
                               <p>

@@ -157,11 +157,11 @@
          }
        } else {
          // In case of language name not 2 or 5 characters, only es-LA has non-ASCII language name
-         $lang = "es-LA";
+         $lang = "fi";
        }
      } else {
        // Only es-LA has non-ASCII language name
-       $lang = "es-LA";
+       $lang = "fi";
     }
    } else {
      if (isset($defaultLang)) {
@@ -206,18 +206,21 @@ $langtranslate = json_decode($langjson, true);
 $enlangjson = file_get_contents('i18n/en.i18n.json');
 $enlangtranslate = json_decode($enlangjson, true);
 
+function fixtext($text) {
+  return htmlentities($text, ENT_QUOTES | ENT_IGNORE, "UTF-8");
+}
 
 function translate($text) {
   global $langjson, $langtranslate, $enlangjson, $enlangtranslate;
   // If translation exists, return it
   if (isset($langtranslate[$text])) {
-    echo $langtranslate[$text];
+    echo fixtext($langtranslate[$text]);
   // If only English translation exists, return it
   } else if (isset($enlangtranslate[$text])) {
-    echo $enlangtranslate[$text];
+    echo fixtext($enlangtranslate[$text]);
   // If no translation exists, return translation string
   } else {
-    echo $text;
+    echo fixtext($text);
   }
 }
 
