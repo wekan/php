@@ -15,13 +15,20 @@ if ($page == "mongo") {
 require_once("../vendor/autoload.php");
 require_once("../vendor/mongodb/mongodb/src/functions.php");
 
-$collection = (new MongoDB\Client("mongodb://127.0.0.1:27017/wekan"))->wekan->users;
+//use Exception;
+//use MongoDB\Client;
+//use MongoDB\Driver\ServerApi;
+
+$uri = 'mongodb://127.0.0.1:27017';
+
+// Create a new client and connect to the server
+$collection = (new MongoDB\Client($uri))->wekan;
 
 //$cursor = $collection->find([],['limit'=>5]);
 
 //var_dump($cursor);
 
-$result = $collection->findOne();
+$result = $collection->users->findOne();
 
 var_dump($result);
 

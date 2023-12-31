@@ -6,7 +6,7 @@
 
 //$limit = 1;
 
-$db = new SQLite3('../../../../wekan.sqlite');
+$db = new SQLite3('../../../../../wekan.sqlite');
 
 $boardstatement = $db->prepare('SELECT * FROM boards WHERE _id=:boardid;');
 $boardstatement->bindValue(':boardid', $boardid);
