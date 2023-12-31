@@ -34,7 +34,7 @@ while ($row = $results->fetchArray()) {
     //var_dump($row);
     // board ID:
     echo "\n";
-    echo ', <a href="?boardid=' . $row[0] . '">';
+    echo ', <a href="?boardschar=' . $row[0] . '">';
     // board title first char
     if (isset($row[1])) {
       echo $row[1];
@@ -63,7 +63,7 @@ while ($row = $results->fetchArray()) {
     //var_dump($row);
     // board ID:
     echo "\n";
-    echo ', <a href="?boardid=' . $row[0] . '">';
+    echo ', <a href="?boardschar=' . $row[0] . '">';
     // board title first char
     if (isset($row[1])) {
       echo $row[1];
@@ -92,7 +92,7 @@ while ($row = $results->fetchArray()) {
     //var_dump($row);
     // board ID:
     echo "\n";
-    echo ', <a href="?boardid=' . $row[0] . '">';
+    echo ', <a href="?boardschar=' . $row[0] . '">';
     // board title first char
     if (isset($row[1])) {
       echo $row[1];

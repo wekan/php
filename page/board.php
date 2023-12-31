@@ -21,7 +21,9 @@ $liststatement->bindValue(':boardid', $boardid);
 $listresults = $liststatement->execute();
 
 while ($boardrow = $boardresults->fetchArray()) {
-    //var_dump($row);
+    //echo '<pre>';
+    //var_dump($boardrow);
+    //echo '</pre>';
 
 ?>
 
@@ -94,16 +96,21 @@ xet7
 ?>
     </tr>
     <tr>
-      <td align="left" valign="top" bgcolor="blue"><font color="white">List
-with custom color as underline (1/2)</font>
+<?php
+
+$liststatement = $db->prepare('SELECT * FROM lists WHERE boardId=:boardid AND archived="false" ORDER BY sort ASC;');
+$liststatement->bindValue(':boardid', $boardid);
+$listresults = $liststatement->execute();
+
+while ($listrow = $listresults->fetchArray()) {
+    //var_dump($listrow);
+?>
+      <td align="left" valign="top" bgcolor="blue"><font color="white"><?php echo "{$listrow['title']}"; ?></font>
       </td>
-      <td align="left" valign="top" bgcolor="blue"><font color="white">Todo</font>
-      </td>
-      <td align="left" valign="top" bgcolor="blue"><font color="white">Doing</font>
-      </td>
-      <td align="left" valign="top" bgcolor="blue"><font color="white">Done</font>
-      </td>
-      <td align="left" valign="top" bgcolor="blue"><font color="white">
+<?php
+}
+?>
+
 <form action="board.html">
 <input type="submit" value="+Add List">
 </form>
@@ -111,67 +118,20 @@ with custom color as underline (1/2)</font>
       </td>
     </tr>
     <tr>
-      <td align="left" valign="top" bgcolor="white"><font color="black"># Card
-1 <img src="openmoji/2764.png" alt="heart" width="30" height="30"> <img src="openmoji/1F44D.png" alt="thumbsup" width="30" height="30"> <img src="openmoji/1F4AF.png" alt="100 points" width="30" height="30"></font>
+<?php
+
+$cardstatement = $db->prepare('SELECT * FROM cards WHERE boardId=:boardid AND archived="false" ORDER BY sort ASC;');
+$cardstatement->bindValue(':boardid', $boardid);
+$cardresults = $cardstatement->execute();
+
+while ($cardrow = $cardresults->fetchArray()) {
+    //var_dump($listrow);
+?>
+      <td align="left" valign="top" bgcolor="white"><font color="black"><?php echo "{$cardrow['title']}"; ?></font>
       </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Something</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Yes Sir
-I can boogie</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">The big
-task</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black"></font>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 2</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Maybe</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black"></font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black"></font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black"></font>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 3</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Probably</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black"></font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black"></font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black"></font>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 4</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black"></font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black"></font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black"></font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black"></font>
-      </td>
-    </tr>
-    <tr>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 5</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 6</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 7</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 8</font>
-      </td>
-      <td align="left" valign="top" bgcolor="white"><font color="black">Card 9</font>
-      </td>
+<?php
+}
+?>
     </tr>
 <?php
 }
