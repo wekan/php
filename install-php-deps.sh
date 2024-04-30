@@ -9,7 +9,7 @@
 # 1) Current user and repo to variable
 USER=$(whoami)
 REPODIR=/home/$USER/repos/w
-PHPVERSION=php8.2
+PHPVERSION=php8.3
 
 # 2) Clone repo, go to repo dir
 #mkdir -p $REPODIR
