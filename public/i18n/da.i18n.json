@@ -578,6 +578,7 @@
   "shortcut-clear-filters": "Ryd alle filtre",
   "shortcut-close-dialog": "Luk dialogboks",
   "shortcut-filter-my-cards": "Filtrer mine kort",
+  "shortcut-filter-my-assigned-cards": "Filter my assigned cards",
   "shortcut-show-shortcuts": "Fremvis denne liste med genveje",
   "shortcut-toggle-filterbar": "Slå filter-sidebjælke til/fra",
   "shortcut-toggle-searchbar": "Toggle Search Sidebar",
@@ -1244,5 +1245,8 @@
   "show-at-minicard": "Vis et minikort",
   "show-checklist-at-minicard": "Vis tjekliste på minikort",
   "show-subtasks-field": "Vis felt med underopgaver",
-  "convert-to-markdown": "Konvertér til markdown"
+  "convert-to-markdown": "Konvertér til markdown",
+  "import-board-zip": "Add .zip file that has board JSON files, and board name subdirectories with attachments",
+  "collapse": "Sammenfold",
+  "uncollapse": "Uncollapse"
 }
