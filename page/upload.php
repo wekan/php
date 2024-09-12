@@ -1,5 +1,10 @@
 <?php
 /*
+/etc/php/8.3/cli/php.ini:
+upload_max_filesize = 4000M;
+post_max_size = 4000M;
+- bigger than 500M needs uploading in chunks.
+
 =========== UPLOAD START ===========
 */
 
