@@ -1,18 +1,27 @@
 <?php
 /*
 =========== HEADER START ===========
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 */
 
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!doctype html>
 <html <?php
 if ($rtl) {
   ?>dir="rtl"<?php
 }
+
+switch ($page) {
+  case "sign-in":
+    $pageTitle = "log-in";
+    break;
+}
+
 ?> lang="<?php echo $lang; ?>">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title><?php echo htmlentities($productName); ?></title>
+    <title><?php echo translate($pageTitle)  . " - " . htmlentities($productName); ?></title>
     <meta name="robots" content="noindex,nofollow">
     <meta name="viewport" content="maximum-scale=1.0,width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -100,7 +109,7 @@ if ($rtl) {
 //echo "&nbsp;";
 //echo substr($_SERVER['REQUEST_URI'], 1);
 echo "&nbsp; / &nbsp;";
-echo $page;
+echo translate($pageTitle);
 
 ?>
 

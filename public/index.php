@@ -42,6 +42,9 @@ if (isset($_POST['at-field-username_and_email']) && isset($_POST['at-field-passw
 $page = substr($_SERVER['REQUEST_URI'], 1);
 $page = str_replace("index.php/", "", $page);
 
+include_once($pagepath . "debug.php");
+include_once($pagepath . "translations.php");
+
 // If page is not set, show sign-in
 if ($page == "") {
   $page = "sign-in";
@@ -51,8 +54,6 @@ if ($page == "") {
 =========== PAGE END ===========
 */
 
-include_once($pagepath . "debug.php");
-include_once($pagepath . "translations.php");
 include_once($pagepath . "header.php");
 
 if (isset($_FILES["fileToUpload"]["name"])) {

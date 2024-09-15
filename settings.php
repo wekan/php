@@ -54,7 +54,8 @@ $msapplicationTileColor = "00aba9";
 $themeColor = "fff";
 
 // Admin Panel / Settings / Layout
-$productName = "WeKan ® Multiverse";
+$productName = "WeKan ®";
+$pageTitle = "";
 $font = "Arial, Helvetica, sans-serif"; // Wekan font
 $bgColor = "dfdfdf"; // Wekan background color
 $displayAuthenticationMethod = true;

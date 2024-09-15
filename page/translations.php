@@ -85,7 +85,7 @@
              break;
          }
        } else if (strlen($lang) == 2) {
-         $lang = strtolower($lang);         
+         $lang = strtolower($lang);
          switch ($lang) {
            case "ar":
            case "az":
