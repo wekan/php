@@ -7,7 +7,7 @@
 if ($page == "allboardschar") {
 
 // Open SQLite database
-$db = new SQLite3('../../../../../wekan.sqlite');
+$db = new SQLite3($sqlitepath);
 
 ?>
 
@@ -21,6 +21,8 @@ if (isset($_SESSION["user"])) {
 ?>
 
 <h3><?php translate("boards"); ?></h3>
+
+
 
 <a href="addboard"><?php translate("add-board"); ?></a>
 <?php

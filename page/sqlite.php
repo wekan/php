@@ -2,7 +2,7 @@
 
 $limit = 1;
 
-$db = new SQLite3('../../../../wekan.sqlite');
+$db = new SQLite3($sqlitepath);
 $statement = $db->prepare('SELECT username from users LIMIT :limit;');
 //$statement->bindValue(':id', $id);
 $statement->bindValue(':limit', $limit);

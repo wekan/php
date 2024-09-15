@@ -41,6 +41,7 @@ die();
 $debug = false;
 $subUrl = "wekan";
 $pagepath = "../page/";
+$sqlitepath = "../wekan.db";
 
 // Settings: HTML head icons.
 $shortcutIcon = "favicon.ico";

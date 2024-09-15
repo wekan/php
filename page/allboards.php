@@ -7,7 +7,7 @@
 if ($page == "allboards") {
 
 // Open SQLite database
-$db = new SQLite3('../../../../../wekan.sqlite');
+$db = new SQLite3($sqlitepath);
 
 ?>
 

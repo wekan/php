@@ -19,6 +19,10 @@ switch ($page) {
   case "sign-up":
     $pageTitle = "register";
     break;
+  case "allboardschar":
+    $pageTitle = "All Boards Char";
+    break;
+
 }
 
 ?> lang="<?php echo $lang; ?>">
