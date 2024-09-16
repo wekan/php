@@ -2,11 +2,11 @@
 /*
 =========== HEADER START ===========
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+DOCTYPE: DO NOT CHANGE IT !
+Otherwise page will not display at AWeb at Amiga !
 */
-
 ?>
-<!doctype html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html <?php
 if ($rtl) {
   ?>dir="rtl"<?php
