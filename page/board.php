@@ -38,6 +38,12 @@
     and is there changes.
   - Reading structure of templates from existing WeKan/client/components/*.jade
     and transpiling it to use at webpage.
+  - Multitenancy: Use same code to host many domains for many kanbans
+  - Multi database: Use many databases with same syntax:
+     a) PHP https://www.doctrine-project.org or https://adodb.org
+        or some other for MongoDB and SQL databases
+     b) Python Web2py DAL https://www.web2py.com
+     c) Javascript NPM package TypeORM or https://kysely.dev with https://hono.dev
 */
 
 //$limit = 1;
