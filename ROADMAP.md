@@ -1,6 +1,7 @@
 ## Roadmap
 
 2024-09-17:
+- (This text was moved from page/board.php to this ROADMAP.md)
 - Listening to about Ember at JS Party #330 from https://changelog.com/jsparty
   - It's amazing how in podcast Ember made possible automatic upgrades for a long time
   - About abstractions, how realtime updates are hard
