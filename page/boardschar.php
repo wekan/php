@@ -7,7 +7,7 @@
 if ($page == "boardschar") {
 
 // Open SQLite database
-$db = new SQLite3('../../../../../wekan.sqlite');
+$db = new SQLite3($sqlitepath);
 
 if (isset($_GET["boardschar"])) {
   $boardschar = $_GET["boardschar"];

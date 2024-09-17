@@ -107,8 +107,9 @@ switch ($page) {
 
 <br>
 <table width="100%">
-<tr><td bgcolor="white"><a href="/allpages">All Pages</a>
-
+  <tr>
+    <td bgcolor="white">
+      <a href="/allpages">All Pages</a>
 <?php
 //echo f(substr($_SERVER['REQUEST_URI'], 0, 11) === "/project/b/") {
 
@@ -117,15 +118,10 @@ switch ($page) {
 //echo substr($_SERVER['REQUEST_URI'], 1);
 echo "&nbsp; / &nbsp;";
 echo translate($pageTitle);
-
 ?>
-
-</td></tr>
+    </td>
+  </tr>
 </table>
-
-<br>
-
-</a>
 
 <br>
 
