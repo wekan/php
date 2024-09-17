@@ -44,6 +44,8 @@
         or some other for MongoDB and SQL databases
      b) Python Web2py DAL https://www.web2py.com
      c) Javascript NPM package TypeORM or https://kysely.dev with https://hono.dev
+  - Supporting all modern and legacy web browsers. Fixes for Amiga AWeb, Dillo etc.
+  - Adding accessibility support
 */
 
 //$limit = 1;
