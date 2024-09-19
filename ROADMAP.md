@@ -67,6 +67,11 @@ Speaking menus:
 - Amiga: Say
 - Etc
 
+Convert text to be speakable:
+
+- What emoji is it
+- Description about what some image is. Maybe image content detection?
+
 Hierarchy levels:
 
 1. Board
