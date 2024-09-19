@@ -67,7 +67,8 @@ Speaking menus:
 
 - Windows: JAWS
 - Amiga: Say
-- Etc
+- If using bitmap graphics (not browser), reinvent accessibility for speaking,
+  by using any possible device, speaking menus, etc whatever available at platform.
 
 Convert text to be speakable:
 
