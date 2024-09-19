@@ -25,6 +25,10 @@
   - Swimlanes are in correct order.
   - Cards are in wrong order.
 - TODO for PHP/MongoDB and other DBs:
+  - Detecting what version of WeKan, database, files location, language, etc is in use.
+  - Reading structure of templates from existing WeKan/client/components/*.jade
+    and database select from first card title at first list of first swimlane
+    of first board, and transpiling it to use at webpage.
   - Why PHP, even for temporary step? There is no build step. Save file, reload webpage.
     At other frameworks there is often some long build step.
   - Keep database structure the same. Read any version of MongoDB or other DB.
@@ -34,8 +38,6 @@
   - Later, using timer, check is there updates to only visible data.
   - Each visible component to have code, that takes card, is it visible,
     and is there changes.
-  - Reading structure of templates from existing WeKan/client/components/*.jade
-    and transpiling it to use at webpage.
   - Multitenancy: Use same code to host many domains for many kanbans
   - Multi database: Use many databases with same syntax:
      a) PHP https://www.doctrine-project.org or https://adodb.org
