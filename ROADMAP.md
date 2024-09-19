@@ -66,7 +66,7 @@ Accessibility:
 Speaking menus:
 
 - Windows: JAWS
-- Amiga: Say
+- Amiga: Say, using Amiga REXX and Amiga Shell
 - If using bitmap graphics (not browser), reinvent accessibility for speaking,
   by using any possible device, speaking menus, etc whatever available at platform.
 
