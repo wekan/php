@@ -66,7 +66,11 @@ Accessibility:
 Speaking menus:
 
 - Windows: JAWS
-- Amiga: Say, using Amiga REXX and Amiga Shell
+- Amiga: say "text" , using:
+  - say text to speech
+  - Amiga Shell
+  - Curl to WeKan API
+  - SQLite command
 - If using bitmap graphics (not browser), reinvent accessibility for speaking,
   by using any possible device, speaking menus, etc whatever available at platform.
 
