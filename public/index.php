@@ -55,6 +55,8 @@ if ($page == "") {
 */
 
 include_once($pagepath . "header.php");
+if ($page == "multidrag")        { include_once($pagepath . "multidrag1.php"); }
+include_once($pagepath . "header2body.php");
 
 if (isset($_FILES["fileToUpload"]["name"])) {
   include_once($pagepath . "upload.php");
@@ -75,6 +77,7 @@ if (isset($_GET["boardid"])) {
   $boardid = $_GET["boardid"];
 }
 
+if ($page == "multidrag")        { include_once($pagepath . "multidrag2.php"); }
 if ($page == "sign-in")          { include_once($pagepath . "sign-in2.php"); }
 if ($page == "sign-up")          { include_once($pagepath . "sign-up2.php"); }
 if ($page == "forgot-password")  { include_once($pagepath . "forgot-password.php");}
