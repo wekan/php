@@ -36,6 +36,7 @@ if ($page == "allpages") {
           <a class="button-link" href="/mongoimage">MongoDB image</a><br /><br />
           <a class="button-link" href="/dragupload">dragupload if JS, onlyupload if no JS</a><br /><br />
           <a class="button-link" href="/multidrag">multidrag using interactjs</a><br /><br />
+          <a class="button-link" href="/raphael">Red Strings: Raphael.js Graffle Shapes</a><br /><br />
         </h3>
 </td>
 </tr>

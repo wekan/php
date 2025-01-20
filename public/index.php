@@ -56,6 +56,7 @@ if ($page == "") {
 
 include_once($pagepath . "header.php");
 if ($page == "multidrag")        { include_once($pagepath . "multidrag1.php"); }
+if ($page == "raphael")          { include_once($pagepath . "raphael1.php"); }
 include_once($pagepath . "header2body.php");
 
 if (isset($_FILES["fileToUpload"]["name"])) {
@@ -77,7 +78,6 @@ if (isset($_GET["boardid"])) {
   $boardid = $_GET["boardid"];
 }
 
-if ($page == "multidrag")        { include_once($pagepath . "multidrag2.php"); }
 if ($page == "sign-in")          { include_once($pagepath . "sign-in2.php"); }
 if ($page == "sign-up")          { include_once($pagepath . "sign-up2.php"); }
 if ($page == "forgot-password")  { include_once($pagepath . "forgot-password.php");}
@@ -102,6 +102,9 @@ if ($page == "mongo")            { include_once($pagepath . "mongo.php"); }
 if ($page == "mongoimage")       { include_once($pagepath . "mongoimage.php"); }
 if ($page == "shell")            { include_once($pagepath . "shell.php"); }
 if ($page == "dragupload")       { include_once($pagepath . "dragupload.php"); }
+if ($page == "multidrag")        { include_once($pagepath . "multidrag2.php"); }
+if ($page == "raphael")          { include_once($pagepath . "raphael2.php"); }
+
 ?>
 
 </body>
