@@ -1,7 +1,7 @@
 <style>
 #drag-1, #drag-2 {
-  width: 25%;
-  min-height: 6.5em;
+  width: 10%;
+  min-height: 2.5em;
   margin: 1rem 0 0 1rem;
   background-color: #29e;
   color: white;
