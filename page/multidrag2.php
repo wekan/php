@@ -118,10 +118,12 @@ border-collapse="collapse" background="img/round-blue.gif">
             var textEl = event.target.querySelector('p')
     
             textEl && (textEl.textContent =
-              'moved a distance of ' +
+              'moved ' +
               (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
                          Math.pow(event.pageY - event.y0, 2) | 0))
-                .toFixed(2) + 'px')
+                .toFixed(0) + 'px from ' +
+                'x' + event.x0.toFixed(0) + '=>' + event.pageX.toFixed(0) +
+                ', y' + event.y0.toFixed(0) + '=>' + event.pageY.toFixed(0));
           }
         }
       })
