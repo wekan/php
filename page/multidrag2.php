@@ -44,6 +44,55 @@ border-collapse="collapse" background="img/round-blue.gif">
   </tr>
 </table>
 
+<br />
+
+<table style="border-collapse: collapse;"
+width="240" height="190" border="0" padding="0" spacing="0" id="drag-3" class="draggable"
+border-collapse="collapse" background="img/round-blue.gif">
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="80" vAlign="middle" align="top">
+      <font size="3" color="#FFFFFF" face="arial"><p>and also visible at Netsurf and Amiga IBrowse</p></font>
+    </td>
+    <td width="20" height="20"></td>
+  </tr>
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="20"></td>
+    <td width="20" height="20"></td>
+  </tr>
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="20"></td>
+    <td width="20" height="20"></td>
+  </tr>
+</table>
+
+<br />
+
+<table style="border-collapse: collapse;"
+width="240" height="190" border="0" padding="0" spacing="0" id="drag-4" class="draggable"
+border-collapse="collapse" background="img/round-blue.gif">
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="80" vAlign="middle" align="top">
+      <font size="3" color="#FFFFFF" face="arial"><p>Just a prototype tech demo</p></font>
+    </td>
+    <td width="20" height="20"></td>
+  </tr>
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="20"></td>
+    <td width="20" height="20"></td>
+  </tr>
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="20"></td>
+    <td width="20" height="20"></td>
+  </tr>
+</table>
+
+
 <script type="text/javascript">
     // target elements with the "draggable" class
     interact('.draggable')

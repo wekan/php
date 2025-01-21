@@ -1,5 +1,5 @@
 <style>
-#drag-1, #drag-2 {
+#drag-1, #drag-2, #drag-3, #drag-4 {
   /*
   border-radius: 0.75em;
   background-color: #2980b9;
