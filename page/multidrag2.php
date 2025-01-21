@@ -4,7 +4,7 @@ border-collapse="collapse" background="img/round-blue.gif">
   <tr border="0" padding="0" spacing="0">
     <td width="20" height="20"></td>
     <td width="200" height="80" vAlign="middle" align="top">
-      <font size="3" color="#FFFFFF" face="arial">You can drag one element</font>
+      <font size="3" color="#FFFFFF" face="arial"><p>At touchscreen, you can drag many cards at once</p></font>
     </td>
     <td width="20" height="20"></td>
   </tr>
@@ -28,7 +28,7 @@ border-collapse="collapse" background="img/round-blue.gif">
   <tr border="0" padding="0" spacing="0">
     <td width="20" height="20"></td>
     <td width="200" height="80" vAlign="middle" align="top">
-      <font size="3" color="#FFFFFF" face="arial">with each pointer</font>
+      <font size="3" color="#FFFFFF" face="arial"><p>one with each finger, multiuser</p></font>
     </td>
     <td width="20" height="20"></td>
   </tr>
