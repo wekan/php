@@ -57,7 +57,8 @@ if ($page == "") {
 include_once($pagepath . "header.php");
 if ($page == "multidrag")        { include_once($pagepath . "multidrag1.php"); }
 if ($page == "raphael")          { include_once($pagepath . "raphael1.php"); }
-include_once($pagepath . "header2body.php");
+include_once($pagepath . "header2css.php");
+include_once($pagepath . "header3body.php");
 
 if (isset($_FILES["fileToUpload"]["name"])) {
   include_once($pagepath . "upload.php");

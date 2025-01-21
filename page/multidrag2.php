@@ -1,10 +1,48 @@
+<table style="border-collapse: collapse;"
+width="240" height="190" border="0" padding="0" spacing="0" id="drag-1" class="draggable"
+border-collapse="collapse" background="img/round-blue.gif">
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="80" vAlign="middle" align="top">
+      <font size="3" color="#FFFFFF" face="arial">You can drag one element</font>
+    </td>
+    <td width="20" height="20"></td>
+  </tr>
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="20"></td>
+    <td width="20" height="20"></td>
+  </tr>
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="20"></td>
+    <td width="20" height="20"></td>
+  </tr>
+</table>
 
-<div id="drag-1" class="draggable">
-    <p> You can drag one element </p>
-  </div>
-  <div id="drag-2" class="draggable">
-    <p> with each pointer </p>
-  </div>
+<br />
+
+<table style="border-collapse: collapse;"
+width="240" height="190" border="0" padding="0" spacing="0" id="drag-2" class="draggable"
+border-collapse="collapse" background="img/round-blue.gif">
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="80" vAlign="middle" align="top">
+      <font size="3" color="#FFFFFF" face="arial">with each pointer</font>
+    </td>
+    <td width="20" height="20"></td>
+  </tr>
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="20"></td>
+    <td width="20" height="20"></td>
+  </tr>
+  <tr border="0" padding="0" spacing="0">
+    <td width="20" height="20"></td>
+    <td width="200" height="20"></td>
+    <td width="20" height="20"></td>
+  </tr>
+</table>
 
 <script type="text/javascript">
     // target elements with the "draggable" class
