@@ -26,12 +26,13 @@ PHPVERSION=php8.3
 sudo apt update
 
 sudo apt -y install composer libcurl4-openssl-dev pkg-config libssl-dev \
-libapache2-mod-$PHPVERSION $PHPVERSION-mbstring $PHPVERSION-dev $PHPVERSION-sqlite3 libgd3 php-pear
-sudo pecl channel-update pecl.php.net
-sudo pecl install mongodb
-sudo echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-composer require mongodb/mongodb
-composer require ext-mongodb
+libapache2-mod-$PHPVERSION $PHPVERSION-mbstring $PHPVERSION-dev $PHPVERSION-sqlite3 \
+$PHPVERSION-mongodb libgd3 php-pear
+#sudo pecl channel-update pecl.php.net
+#sudo pecl install mongodb
+#sudo echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+#composer require mongodb/mongodb
+#composer require ext-mongodb
 
 # 4) Optional:Add mongo to php.ini
 #   sudo echo "extension=mongodb.so" >> /etc/php/7.4/apache2/php.ini
@@ -43,4 +44,4 @@ composer require ext-mongodb
 #sudo usermod -a -G www-data $USER
 
 # 7 Reboot
-echo "Please reboot."
+#echo "Please reboot."
